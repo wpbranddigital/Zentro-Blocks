@@ -19,7 +19,14 @@ import './style.scss';
 import './editor.scss';
 
 function Edit( { attributes, setAttributes } ) {
-	const { panels, activeColor, titleBgColor, contentBgColor, borderRadius, allowMultiple } = attributes;
+	const {
+		panels,
+		activeColor,
+		titleBgColor,
+		contentBgColor,
+		borderRadius,
+		allowMultiple,
+	} = attributes;
 	const [ editingIndex, setEditingIndex ] = useState( 0 );
 	const blockProps = useBlockProps();
 
@@ -32,7 +39,10 @@ function Edit( { attributes, setAttributes } ) {
 
 	const addPanel = () => {
 		setAttributes( {
-			panels: [ ...panels, { title: `Accordion Item ${ panels.length + 1 }`, content: '' } ],
+			panels: [
+				...panels,
+				{ title: `Accordion Item ${ panels.length + 1 }`, content: '' },
+			],
 		} );
 		setEditingIndex( panels.length );
 	};
@@ -46,16 +56,26 @@ function Edit( { attributes, setAttributes } ) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={ __( 'Accordion Settings', 'zentro-blocks' ) } initialOpen={ true }>
+				<PanelBody
+					title={ __( 'Accordion Settings', 'zentro-blocks' ) }
+					initialOpen={ true }
+				>
 					<ToggleControl
-						label={ __( 'Allow multiple open panels', 'zentro-blocks' ) }
+						label={ __(
+							'Allow multiple open panels',
+							'zentro-blocks'
+						) }
 						checked={ allowMultiple }
-						onChange={ ( val ) => setAttributes( { allowMultiple: val } ) }
+						onChange={ ( val ) =>
+							setAttributes( { allowMultiple: val } )
+						}
 					/>
 					<RangeControl
 						label={ __( 'Border Radius (px)', 'zentro-blocks' ) }
 						value={ borderRadius }
-						onChange={ ( val ) => setAttributes( { borderRadius: val } ) }
+						onChange={ ( val ) =>
+							setAttributes( { borderRadius: val } )
+						}
 						min={ 0 }
 						max={ 20 }
 					/>
@@ -68,12 +88,16 @@ function Edit( { attributes, setAttributes } ) {
 							<TextControl
 								label={ __( 'Item Title', 'zentro-blocks' ) }
 								value={ panel.title }
-								onChange={ ( val ) => updatePanel( index, 'title', val ) }
+								onChange={ ( val ) =>
+									updatePanel( index, 'title', val )
+								}
 							/>
 							<TextareaControl
 								label={ __( 'Item Content', 'zentro-blocks' ) }
 								value={ panel.content }
-								onChange={ ( val ) => updatePanel( index, 'content', val ) }
+								onChange={ ( val ) =>
+									updatePanel( index, 'content', val )
+								}
 								rows={ 4 }
 							/>
 							{ panels.length > 1 && (
@@ -87,7 +111,11 @@ function Edit( { attributes, setAttributes } ) {
 							) }
 						</PanelBody>
 					) ) }
-					<Button variant="primary" onClick={ addPanel } style={ { marginTop: '8px' } }>
+					<Button
+						variant="primary"
+						onClick={ addPanel }
+						style={ { marginTop: '8px' } }
+					>
 						{ __( '+ Add Item', 'zentro-blocks' ) }
 					</Button>
 				</PanelBody>
@@ -96,17 +124,23 @@ function Edit( { attributes, setAttributes } ) {
 					colorSettings={ [
 						{
 							value: activeColor,
-							onChange: ( val ) => setAttributes( { activeColor: val } ),
-							label: __( 'Active Indicator Color', 'zentro-blocks' ),
+							onChange: ( val ) =>
+								setAttributes( { activeColor: val } ),
+							label: __(
+								'Active Indicator Color',
+								'zentro-blocks'
+							),
 						},
 						{
 							value: titleBgColor,
-							onChange: ( val ) => setAttributes( { titleBgColor: val } ),
+							onChange: ( val ) =>
+								setAttributes( { titleBgColor: val } ),
 							label: __( 'Title Background', 'zentro-blocks' ),
 						},
 						{
 							value: contentBgColor,
-							onChange: ( val ) => setAttributes( { contentBgColor: val } ),
+							onChange: ( val ) =>
+								setAttributes( { contentBgColor: val } ),
 							label: __( 'Content Background', 'zentro-blocks' ),
 						},
 					] }
@@ -125,11 +159,16 @@ function Edit( { attributes, setAttributes } ) {
 					{ panels.map( ( panel, index ) => (
 						<div
 							key={ index }
-							className={ `gk-accordion__item${ editingIndex === index ? ' is-active' : '' }` }
+							className={ `gk-accordion__item${
+								editingIndex === index ? ' is-active' : ''
+							}` }
 							style={ {
 								borderRadius: `${ borderRadius }px`,
 								backgroundColor: contentBgColor,
-								borderColor: editingIndex === index ? activeColor : undefined,
+								borderColor:
+									editingIndex === index
+										? activeColor
+										: undefined,
 							} }
 						>
 							<h3 className="gk-accordion__header">
@@ -138,17 +177,34 @@ function Edit( { attributes, setAttributes } ) {
 									style={ {
 										backgroundColor: titleBgColor,
 										borderRadius: `${ borderRadius }px ${ borderRadius }px 0 0`,
-										color: editingIndex === index ? activeColor : undefined,
+										color:
+											editingIndex === index
+												? activeColor
+												: undefined,
 									} }
-									onClick={ () => setEditingIndex( editingIndex === index ? -1 : index ) }
+									onClick={ () =>
+										setEditingIndex(
+											editingIndex === index ? -1 : index
+										)
+									}
 								>
 									{ panel.title }
 								</button>
 							</h3>
 							{ editingIndex === index && (
-								<div className="gk-accordion__panel" style={ { display: 'block' } }>
-									<div className="gk-accordion__content" style={ { padding: '20px' } }>
-										{ panel.content || __( 'Enter item content in the sidebar.', 'zentro-blocks' ) }
+								<div
+									className="gk-accordion__panel"
+									style={ { display: 'block' } }
+								>
+									<div
+										className="gk-accordion__content"
+										style={ { padding: '20px' } }
+									>
+										{ panel.content ||
+											__(
+												'Enter item content in the sidebar.',
+												'zentro-blocks'
+											) }
 									</div>
 								</div>
 							) }

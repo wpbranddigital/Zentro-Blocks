@@ -1,0 +1,180 @@
+.gk-image-hotspot-block {
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+
+	&.alignfull {
+		width: 100vw !important;
+		max-width: 100vw !important;
+		margin-left: calc(50% - 50vw) !important;
+		margin-right: calc(50% - 50vw) !important;
+	}
+
+	&.alignwide {
+		max-width: 1200px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.gk-hotspot-container {
+		position: relative;
+		display: inline-block;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	.gk-hotspot-pin-wrapper {
+		position: absolute;
+		box-sizing: border-box;
+	}
+
+	button.gk-hotspot-pin {
+		width: 24px;
+		height: 24px;
+		border-radius: 50%;
+		border: 2px solid;
+		padding: 0;
+		outline: none;
+		box-sizing: border-box;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		transition: all 0.2s ease-in-out;
+		z-index: 2;
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: -4px;
+			left: -4px;
+			right: -4px;
+			bottom: -4px;
+			border-radius: 50%;
+			border: 2px solid inherit;
+			animation: gkPinPulse 2s infinite;
+			box-sizing: border-box;
+			pointer-events: none;
+			opacity: 0.8;
+		}
+	}
+
+	.gk-hotspot-pin-icon {
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		display: block;
+		transition: background 0.2s ease;
+	}
+
+	.gk-hotspot-tooltip {
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		position: absolute;
+		background: #fff;
+		box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+		border-radius: 8px;
+		padding: 14px;
+		width: 220px;
+		transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+		z-index: 999;
+		box-sizing: border-box;
+
+		// Tooltip Positions
+		&--top {
+			bottom: calc(100% + 12px);
+			left: 50%;
+			transform: translateX(-50%) translateY(8px);
+		}
+
+		&--bottom {
+			top: calc(100% + 12px);
+			left: 50%;
+			transform: translateX(-50%) translateY(-8px);
+		}
+
+		&--left {
+			right: calc(100% + 12px);
+			top: 50%;
+			transform: translateY(-50%) translateX(8px);
+		}
+
+		&--right {
+			left: calc(100% + 12px);
+			top: 50%;
+			transform: translateY(-50%) translateX(-8px);
+		}
+	}
+
+	.gk-hotspot-pin-wrapper:hover {
+		.gk-hotspot-tooltip {
+			opacity: 1;
+			visibility: visible;
+			pointer-events: auto;
+		}
+
+		.gk-hotspot-tooltip--top,
+		.gk-hotspot-tooltip--bottom {
+			transform: translateX(-50%) translateY(0);
+		}
+
+		.gk-hotspot-tooltip--left,
+		.gk-hotspot-tooltip--right {
+			transform: translateY(-50%) translateX(0);
+		}
+	}
+
+	.gk-hotspot-pin-wrapper.is-active {
+		.gk-hotspot-tooltip {
+			opacity: 1;
+			visibility: visible;
+			pointer-events: auto;
+		}
+
+		.gk-hotspot-tooltip--top,
+		.gk-hotspot-tooltip--bottom {
+			transform: translateX(-50%) translateY(0);
+		}
+
+		.gk-hotspot-tooltip--left,
+		.gk-hotspot-tooltip--right {
+			transform: translateY(-50%) translateX(0);
+		}
+	}
+
+	.gk-hotspot-tooltip__title {
+		font-size: 14px;
+		font-weight: 600;
+		color: #0f172a;
+		margin: 0 0 6px 0 !important;
+		text-align: left;
+		line-height: 1.4;
+	}
+
+	.gk-hotspot-tooltip__content {
+		font-size: 12px;
+		color: #475569;
+		margin: 0 !important;
+		text-align: left;
+		line-height: 1.5;
+	}
+}
+
+@keyframes gkPinPulse {
+
+	0% {
+		transform: scale(0.95);
+		opacity: 0.8;
+	}
+
+	70% {
+		transform: scale(1.6);
+		opacity: 0;
+	}
+
+	100% {
+		transform: scale(0.95);
+		opacity: 0;
+	}
+}

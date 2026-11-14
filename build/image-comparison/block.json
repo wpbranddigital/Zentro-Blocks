@@ -1,0 +1,75 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zentro-blocks/image-comparison",
+  "version": "1.0.0",
+  "title": "Before/After Image Comparison",
+  "category": "zentro-blocks",
+  "icon": "images-alt2",
+  "description": "Interactive drag-to-reveal slider to compare before and after images side-by-side or stacked.",
+  "keywords": [
+    "compare",
+    "before after",
+    "image slider",
+    "portfolio"
+  ],
+  "textdomain": "zentro-blocks",
+  "attributes": {
+    "beforeImage": {
+      "type": "string",
+      "default": ""
+    },
+    "beforeImageId": {
+      "type": "number",
+      "default": 0
+    },
+    "afterImage": {
+      "type": "string",
+      "default": ""
+    },
+    "afterImageId": {
+      "type": "number",
+      "default": 0
+    },
+    "beforeLabel": {
+      "type": "string",
+      "default": "Before"
+    },
+    "afterLabel": {
+      "type": "string",
+      "default": "After"
+    },
+    "showLabels": {
+      "type": "boolean",
+      "default": true
+    },
+    "sliderOffset": {
+      "type": "number",
+      "default": 50
+    },
+    "orientation": {
+      "type": "string",
+      "default": "horizontal"
+    },
+    "handleColor": {
+      "type": "string",
+      "default": "#0073aa"
+    },
+    "height": {
+      "type": "number",
+      "default": 450
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "render": "file:./render.php",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}

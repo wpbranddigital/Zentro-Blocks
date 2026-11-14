@@ -1,12 +1,34 @@
 .gk-tabs {
+	position: relative;
+	width: 100%;
+	box-sizing: border-box;
+
+	&.alignfull {
+		width: 100vw !important;
+		max-width: 100vw !important;
+		margin-left: calc(50% - 50vw) !important;
+		margin-right: calc(50% - 50vw) !important;
+	}
+
+	&.alignwide {
+		max-width: 1200px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
 	&__nav {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 4px;
 		border-bottom: 2px solid #ddd;
 
-		&[style*="center"] { justify-content: center; }
-		&[style*="right"]  { justify-content: flex-end; }
+		&[style*="center"] {
+			justify-content: center;
+		}
+
+		&[style*="right"] {
+			justify-content: flex-end;
+		}
 	}
 
 	&__nav-btn {

@@ -1,7 +1,12 @@
 .wp-block-gutenberg-kit-cta-banner-block {
+
 	.gk-cta {
+
 		&--stacked {
-			.gk-cta__action { margin-top: 24px; }
+
+			.gk-cta__action {
+				margin-top: 24px;
+			}
 		}
 
 		&--inline {
@@ -12,8 +17,13 @@
 			gap: 24px;
 			text-align: left !important;
 
-			.gk-cta__text { flex: 1; }
-			.gk-cta__action { flex-shrink: 0; }
+			.gk-cta__text {
+				flex: 1;
+			}
+
+			.gk-cta__action {
+				flex-shrink: 0;
+			}
 		}
 	}
 

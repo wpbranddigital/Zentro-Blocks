@@ -1,0 +1,14 @@
+/*!******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/image-hotspot/editor.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************/
+.gk-image-hotspot-block .gk-hotspot-pin-wrapper.is-editing .gk-hotspot-tooltip {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+.gk-image-hotspot-block .gk-hotspot-pin-wrapper.is-editing .gk-hotspot-tooltip.gk-hotspot-tooltip--top, .gk-image-hotspot-block .gk-hotspot-pin-wrapper.is-editing .gk-hotspot-tooltip.gk-hotspot-tooltip--bottom {
+  transform: translateX(50%) translateY(0) !important;
+}
+.gk-image-hotspot-block .gk-hotspot-pin-wrapper.is-editing .gk-hotspot-tooltip.gk-hotspot-tooltip--left, .gk-image-hotspot-block .gk-hotspot-pin-wrapper.is-editing .gk-hotspot-tooltip.gk-hotspot-tooltip--right {
+  transform: translateY(-50%) translateX(0) !important;
+}

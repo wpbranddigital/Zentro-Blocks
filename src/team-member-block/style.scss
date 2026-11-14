@@ -1,0 +1,120 @@
+.gk-team-member-grid {
+	display: grid;
+	grid-template-columns: repeat(var(--gk-tm-cols-desktop, 3), 1fr);
+	gap: var(--gk-tm-gap, 30px);
+	width: 100%;
+
+	@media (max-width: 1024px) {
+		grid-template-columns: repeat(var(--gk-tm-cols-tablet, 2), 1fr);
+	}
+
+	@media (max-width: 767px) {
+		grid-template-columns: repeat(var(--gk-tm-cols-mobile, 1), 1fr);
+	}
+
+	&.gk-align-left .gk-team-content { text-align: left; }
+	&.gk-align-center .gk-team-content { text-align: center; }
+	&.gk-align-right .gk-team-content { text-align: right; }
+
+	&.gk-align-left .gk-team-socials { justify-content: flex-start; }
+	&.gk-align-center .gk-team-socials { justify-content: center; }
+	&.gk-align-right .gk-team-socials { justify-content: flex-end; }
+}
+
+.gk-team-member-card {
+	background-color: var(--gk-tm-bg, #ffffff);
+	border-radius: 12px;
+	padding: 24px;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	&:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+	}
+}
+
+.gk-team-image {
+	width: 150px;
+	height: 150px;
+	margin-bottom: 20px;
+	overflow: hidden;
+	flex-shrink: 0;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+	}
+
+	&.gk-image-style-circle {
+		border-radius: 50%;
+	}
+
+	&.gk-image-style-square {
+		border-radius: 12px;
+	}
+}
+
+.gk-team-content {
+	width: 100%;
+}
+
+.gk-team-name {
+	margin: 0 0 5px 0 !important;
+	font-size: 1.25rem;
+	font-weight: 600;
+	color: var(--gk-tm-text, #333333);
+}
+
+.gk-team-role {
+	margin: 0 0 15px 0 !important;
+	font-size: 0.95rem;
+	font-weight: 500;
+	color: var(--gk-tm-role, #0073aa);
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.gk-team-bio {
+	font-size: 0.95rem;
+	line-height: 1.6;
+	// Follow the block text colour so bios stay readable on dark cards.
+	color: var(--gk-tm-text, #333333);
+	opacity: 0.78;
+	margin-bottom: 20px;
+}
+
+.gk-team-socials {
+	display: flex;
+	gap: 12px;
+
+	.gk-social-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 36px;
+		height: 36px;
+		background: #f1f5f9;
+		color: #475569;
+		border-radius: 50%;
+		text-decoration: none;
+		transition: all 0.2s ease;
+
+		svg {
+			width: 18px;
+			height: 18px;
+		}
+
+		&:hover,
+		&:focus {
+			background: var(--gk-tm-role, #0073aa);
+			color: #ffffff;
+			transform: scale(1.1);
+		}
+	}
+}

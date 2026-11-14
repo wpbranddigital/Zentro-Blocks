@@ -1,1 +1,59 @@
-document.querySelectorAll(".gk-tabs").forEach(function(t){const e=t.dataset.activeColor||"#0073aa",n=t.querySelectorAll(".gk-tabs__nav-btn"),o=t.querySelectorAll(".gk-tabs__panel");function c(t){n.forEach(function(n,o){const c=o===t;n.classList.toggle("is-active",c),n.setAttribute("aria-selected",String(c)),n.setAttribute("tabindex",c?"0":"-1"),n.style.color=c?e:"",n.style.background=c?"#fff":""}),o.forEach(function(e,n){const o=n===t;e.classList.toggle("is-active",o),o?e.removeAttribute("hidden"):e.setAttribute("hidden","")})}n.forEach(function(t,e){t.addEventListener("click",function(){c(e)}),t.addEventListener("keydown",function(t){let o=e;"ArrowRight"===t.key&&(o=(e+1)%n.length),"ArrowLeft"===t.key&&(o=(e-1+n.length)%n.length),"Home"===t.key&&(o=0),"End"===t.key&&(o=n.length-1),o!==e&&(t.preventDefault(),c(o),n[o].focus())})});const r=t.querySelector(".gk-tabs__nav-btn.is-active");r&&(r.style.color=e)});
+/******/ (() => { // webpackBootstrap
+/*!********************************!*\
+  !*** ./src/tabs-block/view.js ***!
+  \********************************/
+(function () {
+  document.querySelectorAll('.gk-tabs').forEach(function (tabsBlock) {
+    const activeColor = tabsBlock.dataset.activeColor || '#0073aa';
+    // Scope to this block only, so nested Tabs blocks work independently.
+    const buttons = tabsBlock.querySelectorAll(':scope > .gk-tabs__nav > .gk-tabs__nav-btn');
+    const panels = tabsBlock.querySelectorAll(':scope > .gk-tabs__panels > .gk-tabs__panel');
+    function activate(index) {
+      buttons.forEach(function (btn, i) {
+        const isActive = i === index;
+        btn.classList.toggle('is-active', isActive);
+        btn.setAttribute('aria-selected', String(isActive));
+        btn.setAttribute('tabindex', isActive ? '0' : '-1');
+        btn.style.color = isActive ? activeColor : '';
+        btn.style.borderBottomColor = isActive ? activeColor : '';
+      });
+      panels.forEach(function (panel, i) {
+        const isActive = i === index;
+        panel.classList.toggle('is-active', isActive);
+        if (isActive) {
+          panel.removeAttribute('hidden');
+        } else {
+          panel.setAttribute('hidden', '');
+        }
+      });
+    }
+    buttons.forEach(function (btn, index) {
+      btn.addEventListener('click', function () {
+        activate(index);
+      });
+      btn.addEventListener('keydown', function (e) {
+        let next = index;
+        if (e.key === 'ArrowRight') {
+          next = (index + 1) % buttons.length;
+        }
+        if (e.key === 'ArrowLeft') {
+          next = (index - 1 + buttons.length) % buttons.length;
+        }
+        if (e.key === 'Home') {
+          next = 0;
+        }
+        if (e.key === 'End') {
+          next = buttons.length - 1;
+        }
+        if (next !== index) {
+          e.preventDefault();
+          activate(next);
+          buttons[next].focus();
+        }
+      });
+    });
+  });
+})();
+/******/ })()
+;
+//# sourceMappingURL=view.js.map

@@ -1,0 +1,270 @@
+/*!********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/container-block/editor.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************/
+.gk-container-setup {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 48px 32px;
+  text-align: center;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  margin: 24px 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+.gk-container-setup .gk-container-setup__inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.gk-container-setup .gk-container-setup__title {
+  font-size: 20px;
+  color: #0f172a;
+  margin-bottom: 28px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+.gk-container-setup .gk-container-setup__grid {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 14px !important;
+  margin-bottom: 28px !important;
+}
+.gk-container-setup .gk-structure-icon {
+  display: flex !important;
+  gap: 3px !important;
+  width: 100% !important;
+  height: 100% !important;
+  box-sizing: border-box !important;
+  background: transparent !important;
+}
+.gk-container-setup .gk-structure-icon__col, .gk-container-setup .gk-structure-icon__row, .gk-container-setup .gk-structure-icon__cell {
+  background: #e2e8f0;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  box-sizing: border-box !important;
+}
+.gk-container-setup .gk-structure-icon.structure-1-col {
+  flex-direction: row !important;
+}
+.gk-container-setup .gk-structure-icon.structure-1-col .gk-structure-icon__col {
+  flex: 1 !important;
+  height: 100% !important;
+}
+.gk-container-setup .gk-structure-icon.structure-row-2 {
+  flex-direction: column !important;
+}
+.gk-container-setup .gk-structure-icon.structure-row-2 .gk-structure-icon__row {
+  flex: 1 !important;
+  width: 100% !important;
+}
+.gk-container-setup .gk-structure-icon.structure-1-1, .gk-container-setup .gk-structure-icon.structure-1-1-1, .gk-container-setup .gk-structure-icon.structure-1-1-1-1, .gk-container-setup .gk-structure-icon.structure-1-2 {
+  flex-direction: row !important;
+}
+.gk-container-setup .gk-structure-icon.structure-1-1 .gk-structure-icon__col, .gk-container-setup .gk-structure-icon.structure-1-1-1 .gk-structure-icon__col, .gk-container-setup .gk-structure-icon.structure-1-1-1-1 .gk-structure-icon__col, .gk-container-setup .gk-structure-icon.structure-1-2 .gk-structure-icon__col {
+  flex: 1 !important;
+  height: 100% !important;
+}
+.gk-container-setup .gk-structure-icon.structure-grid-2x2 {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  width: 100% !important;
+  height: 100% !important;
+  gap: 3px !important;
+}
+.gk-container-setup .gk-structure-icon.structure-grid-3x2 {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr !important;
+  grid-template-rows: 1fr 1fr !important;
+  width: 100% !important;
+  height: 100% !important;
+  gap: 3px !important;
+}
+.gk-container-setup .gk-structure-icon.structure-grid-4x2 {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  grid-template-rows: 1fr 1fr !important;
+  width: 100% !important;
+  height: 100% !important;
+  gap: 3px !important;
+}
+.gk-container-setup button.gk-container-setup__option {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 10px !important;
+  padding: 10px !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  width: 80px !important;
+  height: 68px !important;
+  min-width: 80px !important;
+  min-height: 68px !important;
+  max-width: 80px !important;
+  max-height: 68px !important;
+  box-sizing: border-box !important;
+  outline: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+}
+.gk-container-setup button.gk-container-setup__option:hover {
+  border-color: #38bdf8 !important;
+  background: #fff !important;
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.15) !important;
+  transform: translateY(-2px);
+}
+.gk-container-setup button.gk-container-setup__option:hover .gk-structure-icon__col,
+.gk-container-setup button.gk-container-setup__option:hover .gk-structure-icon__row,
+.gk-container-setup button.gk-container-setup__option:hover .gk-structure-icon__cell {
+  border-color: #38bdf8 !important;
+  background-color: #e0f2fe !important;
+}
+.gk-container-setup button.gk-container-setup__option:active {
+  transform: scale(0.96) translateY(0);
+}
+.gk-container-setup .gk-container-setup__extra {
+  display: flex !important;
+  gap: 12px !important;
+  justify-content: center !important;
+  margin-top: 24px !important;
+  margin-bottom: 24px !important;
+  flex-wrap: wrap !important;
+}
+.gk-container-setup .gk-container-setup__extra .components-button {
+  font-weight: 500 !important;
+  font-size: 13px !important;
+  padding: 8px 16px !important;
+  height: auto !important;
+  border-radius: 6px !important;
+  transition: all 0.15s ease-in-out !important;
+}
+.gk-container-setup .gk-container-setup__extra .components-button.is-secondary {
+  border-color: #cbd5e1 !important;
+  color: #475569 !important;
+  background: #fff !important;
+}
+.gk-container-setup .gk-container-setup__extra .components-button.is-secondary:hover {
+  border-color: #94a3b8 !important;
+  color: #1e293b !important;
+  background: #f8fafc !important;
+}
+.gk-container-setup .gk-container-setup__footer {
+  margin-top: 16px !important;
+}
+.gk-container-setup .gk-container-setup__skip {
+  background: none !important;
+  border: none !important;
+  color: #64748b !important;
+  cursor: pointer !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  text-decoration: underline !important;
+  transition: color 0.15s ease !important;
+  padding: 6px 12px !important;
+}
+.gk-container-setup .gk-container-setup__skip:hover {
+  color: #0f172a !important;
+  text-decoration: underline !important;
+}
+
+.wp-block-zentro-blocks-container-block {
+  position: relative;
+}
+.wp-block-zentro-blocks-container-block .gk-container-content:empty::before {
+  content: "Drag blocks here";
+  display: block;
+  padding: 30px;
+  border: 2px dashed #cbd5e1;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #94a3b8;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+.wp-block-zentro-blocks-container-block.gk-hidden-desktop, .wp-block-zentro-blocks-container-block.gk-hidden-tablet, .wp-block-zentro-blocks-container-block.gk-hidden-mobile {
+  opacity: 0.65;
+  border: 1px dashed #ef4444 !important;
+}
+.wp-block-zentro-blocks-container-block.gk-hidden-desktop::after, .wp-block-zentro-blocks-container-block.gk-hidden-tablet::after, .wp-block-zentro-blocks-container-block.gk-hidden-mobile::after {
+  content: "Hidden on: " attr(class);
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: #ef4444;
+  color: #fff;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  z-index: 9999;
+  font-family: sans-serif;
+  pointer-events: none;
+}
+
+.gk-sidebar-layout-picker .gk-container-setup__grid,
+.gk-toolbar-layout-picker .gk-container-setup__grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 6px !important;
+  margin-bottom: 0 !important;
+}
+.gk-sidebar-layout-picker button.gk-container-setup__option,
+.gk-toolbar-layout-picker button.gk-container-setup__option {
+  width: 100% !important;
+  height: 48px !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  padding: 6px !important;
+}
+.gk-sidebar-layout-picker button.gk-container-setup__option.is-active,
+.gk-toolbar-layout-picker button.gk-container-setup__option.is-active {
+  border-color: #38bdf8 !important;
+  background: #f0f9ff !important;
+}
+.gk-sidebar-layout-picker button.gk-container-setup__option.is-active .gk-structure-icon__col,
+.gk-sidebar-layout-picker button.gk-container-setup__option.is-active .gk-structure-icon__row,
+.gk-sidebar-layout-picker button.gk-container-setup__option.is-active .gk-structure-icon__cell,
+.gk-toolbar-layout-picker button.gk-container-setup__option.is-active .gk-structure-icon__col,
+.gk-toolbar-layout-picker button.gk-container-setup__option.is-active .gk-structure-icon__row,
+.gk-toolbar-layout-picker button.gk-container-setup__option.is-active .gk-structure-icon__cell {
+  border-color: #38bdf8 !important;
+  background-color: #bae6fd !important;
+}
+
+.wp-block-zentro-blocks-container-block {
+  border: 1px dashed rgba(148, 163, 184, 0.45) !important;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+.wp-block-zentro-blocks-container-block:hover {
+  border-color: rgba(56, 189, 248, 0.6) !important;
+}
+.wp-block-zentro-blocks-container-block.is-selected {
+  border-color: #38bdf8 !important;
+  border-style: solid !important;
+}
+.wp-block-zentro-blocks-container-block .wp-block-zentro-blocks-container-block {
+  border: 1px dashed rgba(148, 163, 184, 0.6) !important;
+  border-radius: 6px;
+  min-height: 100px;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+}
+.wp-block-zentro-blocks-container-block .wp-block-zentro-blocks-container-block:hover {
+  border-color: #38bdf8 !important;
+}
+.wp-block-zentro-blocks-container-block .wp-block-zentro-blocks-container-block.is-selected {
+  border-color: #0284c7 !important;
+  border-style: solid !important;
+}
+
+/*# sourceMappingURL=index.css.map*/

@@ -18,9 +18,19 @@ import './editor.scss';
 
 function Edit( { attributes, setAttributes } ) {
 	const {
-		headline, subtext, buttonLabel, buttonUrl, buttonTarget,
-		bgColor, textColor, btnBgColor, btnTextColor,
-		alignment, layout, paddingV, borderRadius,
+		headline,
+		subtext,
+		buttonLabel,
+		buttonUrl,
+		buttonTarget,
+		bgColor,
+		textColor,
+		btnBgColor,
+		btnTextColor,
+		alignment,
+		layout,
+		paddingV,
+		borderRadius,
 	} = attributes;
 
 	const blockProps = useBlockProps();
@@ -29,40 +39,59 @@ function Edit( { attributes, setAttributes } ) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={ __( 'Content', 'zentro-blocks' ) } initialOpen={ true }>
+				<PanelBody
+					title={ __( 'Content', 'zentro-blocks' ) }
+					initialOpen={ true }
+				>
 					<TextControl
 						label={ __( 'Headline', 'zentro-blocks' ) }
 						value={ headline }
-						onChange={ ( val ) => setAttributes( { headline: val } ) }
+						onChange={ ( val ) =>
+							setAttributes( { headline: val } )
+						}
 					/>
 					<TextControl
 						label={ __( 'Subtext', 'zentro-blocks' ) }
 						value={ subtext }
-						onChange={ ( val ) => setAttributes( { subtext: val } ) }
+						onChange={ ( val ) =>
+							setAttributes( { subtext: val } )
+						}
 					/>
 					<TextControl
 						label={ __( 'Button Label', 'zentro-blocks' ) }
 						value={ buttonLabel }
-						onChange={ ( val ) => setAttributes( { buttonLabel: val } ) }
+						onChange={ ( val ) =>
+							setAttributes( { buttonLabel: val } )
+						}
 					/>
 					<TextControl
 						label={ __( 'Button URL', 'zentro-blocks' ) }
 						value={ buttonUrl }
-						onChange={ ( val ) => setAttributes( { buttonUrl: val } ) }
+						onChange={ ( val ) =>
+							setAttributes( { buttonUrl: val } )
+						}
 					/>
 					<ToggleControl
 						label={ __( 'Open in new tab', 'zentro-blocks' ) }
 						checked={ buttonTarget }
-						onChange={ ( val ) => setAttributes( { buttonTarget: val } ) }
+						onChange={ ( val ) =>
+							setAttributes( { buttonTarget: val } )
+						}
 					/>
 				</PanelBody>
-				<PanelBody title={ __( 'Layout', 'zentro-blocks' ) } initialOpen={ false }>
+				<PanelBody
+					title={ __( 'Layout', 'zentro-blocks' ) }
+					initialOpen={ false }
+				>
 					<SelectControl
 						label={ __( 'Layout', 'zentro-blocks' ) }
 						value={ layout }
 						options={ [
 							{ label: 'Stacked', value: 'stacked' },
-							{ label: 'Inline (text + button side by side)', value: 'inline' },
+							{
+								label: 'Inline (text + button side by side)',
+								value: 'inline',
+							},
 						] }
 						onChange={ ( val ) => setAttributes( { layout: val } ) }
 					/>
@@ -74,19 +103,25 @@ function Edit( { attributes, setAttributes } ) {
 							{ label: 'Center', value: 'center' },
 							{ label: 'Right', value: 'right' },
 						] }
-						onChange={ ( val ) => setAttributes( { alignment: val } ) }
+						onChange={ ( val ) =>
+							setAttributes( { alignment: val } )
+						}
 					/>
 					<RangeControl
 						label={ __( 'Vertical Padding (px)', 'zentro-blocks' ) }
 						value={ paddingV }
-						onChange={ ( val ) => setAttributes( { paddingV: val } ) }
+						onChange={ ( val ) =>
+							setAttributes( { paddingV: val } )
+						}
 						min={ 16 }
 						max={ 120 }
 					/>
 					<RangeControl
 						label={ __( 'Border Radius (px)', 'zentro-blocks' ) }
 						value={ borderRadius }
-						onChange={ ( val ) => setAttributes( { borderRadius: val } ) }
+						onChange={ ( val ) =>
+							setAttributes( { borderRadius: val } )
+						}
 						min={ 0 }
 						max={ 32 }
 					/>
@@ -94,10 +129,29 @@ function Edit( { attributes, setAttributes } ) {
 				<PanelColorSettings
 					title={ __( 'Colors', 'zentro-blocks' ) }
 					colorSettings={ [
-						{ value: bgColor,      onChange: ( v ) => setAttributes( { bgColor: v } ),      label: __( 'Background', 'zentro-blocks' ) },
-						{ value: textColor,    onChange: ( v ) => setAttributes( { textColor: v } ),    label: __( 'Text Color', 'zentro-blocks' ) },
-						{ value: btnBgColor,   onChange: ( v ) => setAttributes( { btnBgColor: v } ),   label: __( 'Button Background', 'zentro-blocks' ) },
-						{ value: btnTextColor, onChange: ( v ) => setAttributes( { btnTextColor: v } ), label: __( 'Button Text', 'zentro-blocks' ) },
+						{
+							value: bgColor,
+							onChange: ( v ) => setAttributes( { bgColor: v } ),
+							label: __( 'Background', 'zentro-blocks' ),
+						},
+						{
+							value: textColor,
+							onChange: ( v ) =>
+								setAttributes( { textColor: v } ),
+							label: __( 'Text Color', 'zentro-blocks' ),
+						},
+						{
+							value: btnBgColor,
+							onChange: ( v ) =>
+								setAttributes( { btnBgColor: v } ),
+							label: __( 'Button Background', 'zentro-blocks' ),
+						},
+						{
+							value: btnTextColor,
+							onChange: ( v ) =>
+								setAttributes( { btnTextColor: v } ),
+							label: __( 'Button Text', 'zentro-blocks' ),
+						},
 					] }
 				/>
 			</InspectorControls>
@@ -114,13 +168,20 @@ function Edit( { attributes, setAttributes } ) {
 					} }
 				>
 					<div className="gk-cta__text">
-						{ headline && <h2 className="gk-cta__headline">{ headline }</h2> }
-						{ subtext  && <p  className="gk-cta__subtext">{ subtext }</p> }
+						{ headline && (
+							<h2 className="gk-cta__headline">{ headline }</h2>
+						) }
+						{ subtext && (
+							<p className="gk-cta__subtext">{ subtext }</p>
+						) }
 					</div>
 					<div className="gk-cta__action">
 						<span
 							className="gk-cta__btn"
-							style={ { backgroundColor: btnBgColor, color: btnTextColor } }
+							style={ {
+								backgroundColor: btnBgColor,
+								color: btnTextColor,
+							} }
 						>
 							{ buttonLabel }
 						</span>

@@ -1,0 +1,66 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zentro-blocks/team-member-block",
+  "version": "1.0.0",
+  "title": "Team Member",
+  "category": "zentro-blocks",
+  "icon": "groups",
+  "description": "Professional, responsive team member profile grid.",
+  "keywords": [ "team", "member", "profile", "person", "grid" ],
+  "textdomain": "zentro-blocks",
+  "attributes": {
+    "members": {
+      "type": "array",
+      "default": [
+        { "name": "John Doe", "role": "CEO", "bio": "Brief bio goes here.", "imageUrl": "", "imageId": 0, "imageAlt": "", "facebookUrl": "", "twitterUrl": "", "linkedinUrl": "", "emailAddress": "" },
+        { "name": "Jane Smith", "role": "CTO", "bio": "Brief bio goes here.", "imageUrl": "", "imageId": 0, "imageAlt": "", "facebookUrl": "", "twitterUrl": "", "linkedinUrl": "", "emailAddress": "" },
+        { "name": "Mike Johnson", "role": "Lead Designer", "bio": "Brief bio goes here.", "imageUrl": "", "imageId": 0, "imageAlt": "", "facebookUrl": "", "twitterUrl": "", "linkedinUrl": "", "emailAddress": "" }
+      ]
+    },
+    "columnsDesktop": {
+      "type": "number",
+      "default": 3
+    },
+    "columnsTablet": {
+      "type": "number",
+      "default": 3
+    },
+    "columnsMobile": {
+      "type": "number",
+      "default": 1
+    },
+    "gap": {
+      "type": "number",
+      "default": 30
+    },
+    "imageStyle": {
+      "type": "string",
+      "default": "square"
+    },
+    "alignment": {
+      "type": "string",
+      "default": "center"
+    },
+    "bgColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "textColor": {
+      "type": "string",
+      "default": "#333333"
+    },
+    "roleColor": {
+      "type": "string",
+      "default": "#0073aa"
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [ "wide", "full" ]
+  },
+  "render": "file:./render.php",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

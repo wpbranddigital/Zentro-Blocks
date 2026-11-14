@@ -1,0 +1,16 @@
+/*!*********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/timeline-roadmap/editor.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************/
+.wp-block-zentro-blocks-timeline-roadmap {
+  margin: 20px 0;
+  padding: 10px;
+  border: 1px dashed rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.5);
+  overflow: visible;
+}
+.wp-block-zentro-blocks-timeline-roadmap .gk-timeline--layout-horizontal {
+  padding: 30px 10px;
+}
+
+/*# sourceMappingURL=index.css.map*/

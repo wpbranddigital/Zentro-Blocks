@@ -1,0 +1,318 @@
+.gk-container-setup {
+	background: #fff;
+	border: 1px solid #e2e8f0;
+	border-radius: 16px;
+	padding: 48px 32px;
+	text-align: center;
+	box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+	margin: 24px 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	display: block !important;
+	width: 100% !important;
+	max-width: 100% !important;
+	box-sizing: border-box;
+
+	.gk-container-setup__inner {
+		max-width: 640px;
+		margin: 0 auto;
+	}
+
+	.gk-container-setup__title {
+		font-size: 20px;
+		color: #0f172a;
+		margin-bottom: 28px;
+		font-weight: 600;
+		letter-spacing: -0.025em;
+	}
+
+	.gk-container-setup__grid {
+		display: flex !important;
+		flex-wrap: wrap !important;
+		justify-content: center !important;
+		gap: 14px !important;
+		margin-bottom: 28px !important;
+	}
+
+	// Layout drawings inside the setup buttons
+	.gk-structure-icon {
+		display: flex !important;
+		gap: 3px !important;
+		width: 100% !important;
+		height: 100% !important;
+		box-sizing: border-box !important;
+		background: transparent !important;
+
+		&__col,
+		&__row,
+		&__cell {
+			background: #e2e8f0;
+			border: 1.5px solid #cbd5e1;
+			border-radius: 4px;
+			transition: all 0.2s ease;
+			box-sizing: border-box !important;
+		}
+
+		&.structure-1-col {
+			flex-direction: row !important;
+
+			.gk-structure-icon__col {
+				flex: 1 !important;
+				height: 100% !important;
+			}
+		}
+
+		&.structure-row-2 {
+			flex-direction: column !important;
+
+			.gk-structure-icon__row {
+				flex: 1 !important;
+				width: 100% !important;
+			}
+		}
+
+		&.structure-1-1,
+		&.structure-1-1-1,
+		&.structure-1-1-1-1,
+		&.structure-1-2 {
+			flex-direction: row !important;
+
+			.gk-structure-icon__col {
+				flex: 1 !important;
+				height: 100% !important;
+			}
+		}
+
+		&.structure-grid-2x2 {
+			display: grid !important;
+			grid-template-columns: 1fr 1fr !important;
+			width: 100% !important;
+			height: 100% !important;
+			gap: 3px !important;
+		}
+
+		&.structure-grid-3x2 {
+			display: grid !important;
+			grid-template-columns: 1fr 1fr 1fr !important;
+			grid-template-rows: 1fr 1fr !important;
+			width: 100% !important;
+			height: 100% !important;
+			gap: 3px !important;
+		}
+
+		&.structure-grid-4x2 {
+			display: grid !important;
+			grid-template-columns: repeat(4, 1fr) !important;
+			grid-template-rows: 1fr 1fr !important;
+			width: 100% !important;
+			height: 100% !important;
+			gap: 3px !important;
+		}
+	}
+
+	// Use specific 'button' tag selector + !important to override
+	// strong Gutenberg button overrides
+	button.gk-container-setup__option {
+		background: #f8fafc !important;
+		border: 1px solid #e2e8f0 !important;
+		border-radius: 10px !important;
+		padding: 10px !important;
+		cursor: pointer !important;
+		display: flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+		width: 80px !important;
+		height: 68px !important;
+		min-width: 80px !important;
+		min-height: 68px !important;
+		max-width: 80px !important;
+		max-height: 68px !important;
+		box-sizing: border-box !important;
+		outline: none !important;
+		box-shadow: none !important;
+		margin: 0 !important;
+
+		&:hover {
+			border-color: #38bdf8 !important;
+			background: #fff !important;
+			box-shadow: 0 4px 12px rgba(56, 189, 248, 0.15) !important;
+			transform: translateY(-2px);
+
+			.gk-structure-icon__col,
+			.gk-structure-icon__row,
+			.gk-structure-icon__cell {
+				border-color: #38bdf8 !important;
+				background-color: #e0f2fe !important;
+			}
+		}
+
+		&:active {
+			transform: scale(0.96) translateY(0);
+		}
+	}
+
+	.gk-container-setup__extra {
+		display: flex !important;
+		gap: 12px !important;
+		justify-content: center !important;
+		margin-top: 24px !important;
+		margin-bottom: 24px !important;
+		flex-wrap: wrap !important;
+
+		// Make the standard button wrapper buttons clean & premium
+		.components-button {
+			font-weight: 500 !important;
+			font-size: 13px !important;
+			padding: 8px 16px !important;
+			height: auto !important;
+			border-radius: 6px !important;
+			transition: all 0.15s ease-in-out !important;
+
+			&.is-secondary {
+				border-color: #cbd5e1 !important;
+				color: #475569 !important;
+				background: #fff !important;
+
+				&:hover {
+					border-color: #94a3b8 !important;
+					color: #1e293b !important;
+					background: #f8fafc !important;
+				}
+			}
+		}
+	}
+
+	.gk-container-setup__footer {
+		margin-top: 16px !important;
+	}
+
+	.gk-container-setup__skip {
+		background: none !important;
+		border: none !important;
+		color: #64748b !important;
+		cursor: pointer !important;
+		font-size: 13px !important;
+		font-weight: 500 !important;
+		text-decoration: underline !important;
+		transition: color 0.15s ease !important;
+		padding: 6px 12px !important;
+
+		&:hover {
+			color: #0f172a !important;
+			text-decoration: underline !important;
+		}
+	}
+}
+
+// Editor visual representations of layout
+.wp-block-zentro-blocks-container-block {
+	position: relative;
+
+	// In empty state, render a drop helper guide
+	.gk-container-content:empty::before {
+		content: "Drag blocks here";
+		display: block;
+		padding: 30px;
+		border: 2px dashed #cbd5e1;
+		border-radius: 8px;
+		background: #f8fafc;
+		color: #94a3b8;
+		font-size: 14px;
+		font-weight: 500;
+		text-align: center;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	// 11. Visibility Toggles - Highlight visually in editor
+	// (instead of fully hiding) so authors can still see and edit the block
+	&.gk-hidden-desktop,
+	&.gk-hidden-tablet,
+	&.gk-hidden-mobile {
+		opacity: 0.65;
+		border: 1px dashed #ef4444 !important;
+
+		&::after {
+			content: "Hidden on: " attr(class);
+			position: absolute;
+			top: 2px;
+			right: 2px;
+			background: #ef4444;
+			color: #fff;
+			font-size: 10px;
+			padding: 2px 6px;
+			border-radius: 4px;
+			z-index: 9999;
+			font-family: sans-serif;
+			pointer-events: none;
+		}
+	}
+}
+
+.gk-sidebar-layout-picker,
+.gk-toolbar-layout-picker {
+	.gk-container-setup__grid {
+		display: grid !important;
+		grid-template-columns: repeat(4, 1fr) !important;
+		gap: 6px !important;
+		margin-bottom: 0 !important;
+	}
+
+	button.gk-container-setup__option {
+		width: 100% !important;
+		height: 48px !important;
+		min-width: 0 !important;
+		min-height: 0 !important;
+		padding: 6px !important;
+
+		// Active state styling if this option is selected
+		&.is-active {
+			border-color: #38bdf8 !important;
+			background: #f0f9ff !important;
+
+			.gk-structure-icon__col,
+			.gk-structure-icon__row,
+			.gk-structure-icon__cell {
+				border-color: #38bdf8 !important;
+				background-color: #bae6fd !important;
+			}
+		}
+	}
+}
+
+// Visual boundaries/guides for parent and child containers in the Gutenberg editor
+.wp-block-zentro-blocks-container-block {
+	border: 1px dashed rgba(148, 163, 184, 0.45) !important;
+	border-radius: 8px;
+	box-sizing: border-box;
+
+	&:hover {
+		border-color: rgba(56, 189, 248, 0.6) !important;
+	}
+
+	&.is-selected {
+		border-color: #38bdf8 !important;
+		border-style: solid !important;
+	}
+
+	// Nested child container blocks
+	.wp-block-zentro-blocks-container-block {
+		// No forced background: it used to hide the container's own
+		// colour/gradient (e.g. dark sections) in the editor only.
+		border: 1px dashed rgba(148, 163, 184, 0.6) !important;
+		border-radius: 6px;
+		min-height: 100px;
+		display: flex !important;
+		flex-direction: column;
+		justify-content: center;
+
+		&:hover {
+			border-color: #38bdf8 !important;
+		}
+
+		&.is-selected {
+			border-color: #0284c7 !important;
+			border-style: solid !important;
+		}
+	}
+}

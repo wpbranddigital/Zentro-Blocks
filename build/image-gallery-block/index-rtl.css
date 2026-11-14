@@ -1,0 +1,35 @@
+/*!************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/image-gallery-block/editor.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************/
+.gk-image-gallery-wrapper .gk-gallery-item {
+  position: relative;
+}
+.gk-image-gallery-wrapper .gk-gallery-item .gk-remove-image-btn {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border-radius: 50%;
+  min-width: 32px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+.gk-image-gallery-wrapper .gk-gallery-item .gk-remove-image-btn:hover, .gk-image-gallery-wrapper .gk-gallery-item .gk-remove-image-btn:focus {
+  background: rgba(220, 50, 50, 0.9);
+  color: #fff;
+  opacity: 1;
+}
+.gk-image-gallery-wrapper .gk-gallery-item:hover .gk-remove-image-btn {
+  opacity: 1;
+}
+.gk-image-gallery-wrapper .components-placeholder {
+  min-height: 200px;
+}

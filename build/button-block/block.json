@@ -1,0 +1,110 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zentro-blocks/button-block",
+  "version": "1.0.0",
+  "title": "Interactive Button",
+  "category": "zentro-blocks",
+  "icon": "button",
+  "description": "Customizable, highly animated Call-To-Action button with custom sizes, hover styles, icons, and alignments.",
+  "keywords": [
+    "button",
+    "link",
+    "cta",
+    "button-block"
+  ],
+  "textdomain": "zentro-blocks",
+  "attributes": {
+    "text": {
+      "type": "string",
+      "default": "Explore More"
+    },
+    "url": {
+      "type": "string",
+      "default": "#"
+    },
+    "linkTarget": {
+      "type": "string",
+      "default": "_self"
+    },
+    "buttonSize": {
+      "type": "string",
+      "default": "medium"
+    },
+    "customPaddingTop": {
+      "type": "number",
+      "default": 14
+    },
+    "customPaddingBottom": {
+      "type": "number",
+      "default": 14
+    },
+    "customPaddingLeft": {
+      "type": "number",
+      "default": 32
+    },
+    "customPaddingRight": {
+      "type": "number",
+      "default": 32
+    },
+    "fontSize": {
+      "type": "number",
+      "default": 16
+    },
+    "borderRadius": {
+      "type": "number",
+      "default": 8
+    },
+    "alignment": {
+      "type": "string",
+      "default": "center"
+    },
+    "normalBg": {
+      "type": "string",
+      "default": "#0073aa"
+    },
+    "normalText": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "hoverBg": {
+      "type": "string",
+      "default": "#005a87"
+    },
+    "hoverText": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "shadowType": {
+      "type": "string",
+      "default": "soft"
+    },
+    "animationType": {
+      "type": "string",
+      "default": "float"
+    },
+    "iconName": {
+      "type": "string",
+      "default": "arrow"
+    },
+    "iconPosition": {
+      "type": "string",
+      "default": "right"
+    },
+    "iconHoverAnim": {
+      "type": "string",
+      "default": "translate"
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "render": "file:./render.php",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

@@ -1,7 +1,22 @@
 .gk-accordion {
 	box-sizing: border-box;
 
-	*, *::before, *::after {
+	&.alignfull {
+		width: 100vw !important;
+		max-width: 100vw !important;
+		margin-left: calc(50% - 50vw) !important;
+		margin-right: calc(50% - 50vw) !important;
+	}
+
+	&.alignwide {
+		max-width: 1200px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
 		box-sizing: border-box;
 	}
 
@@ -53,6 +68,7 @@
 	}
 
 	&__item.is-active &__trigger {
+
 		&::after {
 			content: "\2212";
 			transform: rotate(180deg);

@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zentro-blocks/image-hotspot",
+  "version": "1.0.0",
+  "title": "Image Hotspot",
+  "category": "zentro-blocks",
+  "icon": "location",
+  "description": "Drop interactive hotspots/pins onto a background image to display informative tooltips on hover or click.",
+  "keywords": [ "hotspot", "pin", "image", "tooltip" ],
+  "textdomain": "zentro-blocks",
+  "attributes": {
+    "image": {
+      "type": "string",
+      "default": ""
+    },
+    "imageAlt": {
+      "type": "string",
+      "default": ""
+    },
+    "activeColor": {
+      "type": "string",
+      "default": "#38bdf8"
+    },
+    "pinBgColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "trigger": {
+      "type": "string",
+      "default": "hover"
+    },
+    "hotspots": {
+      "type": "array",
+      "default": [
+        {
+          "x": 30,
+          "y": 40,
+          "title": "Pin One",
+          "content": "Description of the first hotspot feature.",
+          "position": "top"
+        }
+      ]
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [ "wide", "full" ]
+  },
+  "render": "file:./render.php",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}

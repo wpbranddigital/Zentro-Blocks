@@ -1,0 +1,83 @@
+/*!**********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/team-member-block/editor.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************/
+.gk-team-member-grid .gk-team-member-card {
+  position: relative;
+}
+.gk-team-member-grid .gk-team-member-card .gk-member-controls-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 12px;
+  color: #888;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.gk-team-member-grid .gk-team-member-card .gk-team-image .components-placeholder {
+  min-height: 150px;
+  border-radius: inherit;
+}
+.gk-team-member-grid .gk-team-member-card .gk-team-image .gk-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.gk-team-member-grid .gk-team-member-card .gk-team-image .gk-image-wrapper .gk-image-actions {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.gk-team-member-grid .gk-team-member-card .gk-team-image .gk-image-wrapper .gk-image-actions .components-button {
+  justify-content: center;
+}
+.gk-team-member-grid .gk-team-member-card .gk-team-image .gk-image-wrapper:hover .gk-image-actions {
+  opacity: 1;
+}
+.gk-team-member-grid .gk-team-member-card .gk-team-name,
+.gk-team-member-grid .gk-team-member-card .gk-team-role,
+.gk-team-member-grid .gk-team-member-card .gk-team-bio {
+  border: 1px dashed transparent;
+  transition: border-color 0.2s;
+}
+.gk-team-member-grid .gk-team-member-card .gk-team-name:focus, .gk-team-member-grid .gk-team-member-card .gk-team-name:focus-within,
+.gk-team-member-grid .gk-team-member-card .gk-team-role:focus,
+.gk-team-member-grid .gk-team-member-card .gk-team-role:focus-within,
+.gk-team-member-grid .gk-team-member-card .gk-team-bio:focus,
+.gk-team-member-grid .gk-team-member-card .gk-team-bio:focus-within {
+  border-color: #ddd;
+  outline: none;
+}
+.gk-team-member-grid .gk-team-member-card .gk-team-socials-editor {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px dashed #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.gk-team-member-grid .gk-team-member-card .gk-team-socials-editor .components-base-control {
+  margin-bottom: 0;
+}
+
+.gk-add-member-wrapper {
+  grid-column: 1/-1;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/*# sourceMappingURL=index.css.map*/

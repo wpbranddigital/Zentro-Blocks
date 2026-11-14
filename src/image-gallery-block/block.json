@@ -1,0 +1,50 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zentro-blocks/image-gallery-block",
+  "version": "1.0.0",
+  "title": "Image Gallery",
+  "category": "zentro-blocks",
+  "icon": "format-gallery",
+  "description": "A responsive, modern image gallery block.",
+  "keywords": [ "gallery", "images", "grid", "portfolio" ],
+  "textdomain": "zentro-blocks",
+  "attributes": {
+    "images": {
+      "type": "array",
+      "default": []
+    },
+    "columnsDesktop": {
+      "type": "number",
+      "default": 3
+    },
+    "columnsTablet": {
+      "type": "number",
+      "default": 2
+    },
+    "columnsMobile": {
+      "type": "number",
+      "default": 1
+    },
+    "gap": {
+      "type": "number",
+      "default": 20
+    },
+    "imageRadius": {
+      "type": "number",
+      "default": 8
+    },
+    "aspectRatio": {
+      "type": "string",
+      "default": "1/1"
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [ "wide", "full" ]
+  },
+  "render": "file:./render.php",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

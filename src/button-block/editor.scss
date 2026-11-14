@@ -1,0 +1,9 @@
+.gk-button-block-wrapper {
+	// Editor specific overrides
+	.gk-btn-interactive {
+		// Ensure RichText doesn't display focus outline borders
+		.block-editor-rich-text__editable:focus {
+			outline: none;
+		}
+	}
+}

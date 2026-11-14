@@ -1,1 +1,11 @@
-.wp-block-zentro-blocks-pricing-card-block .gk-pricing-card:hover{transform:none}.wp-block-zentro-blocks-pricing-card-block .gk-pricing-card__button{cursor:default}
+/*!***********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/pricing-card-block/editor.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************/
+.wp-block-zentro-blocks-pricing-card-block .gk-pricing-card:hover {
+  transform: none;
+}
+.wp-block-zentro-blocks-pricing-card-block .gk-pricing-card__button {
+  cursor: default;
+}
+
+/*# sourceMappingURL=index.css.map*/

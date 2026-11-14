@@ -1,98 +1,270 @@
-import { registerBlockType } from '@wordpress/blocks';
-import { __ } from '@wordpress/i18n';
+import { registerBlockType, createBlock, rawHandler } from '@wordpress/blocks';
+import { __, sprintf } from '@wordpress/i18n';
 import {
 	InspectorControls,
 	PanelColorSettings,
+	RichText,
 	useBlockProps,
+	useInnerBlocksProps,
+	InnerBlocks,
+	store as blockEditorStore,
 } from '@wordpress/block-editor';
 import {
 	PanelBody,
 	Button,
 	TextControl,
-	TextareaControl,
 	RangeControl,
 	SelectControl,
 } from '@wordpress/components';
-import { useState } from '@wordpress/element';
+import { useState, useEffect } from '@wordpress/element';
+import { useSelect, useDispatch } from '@wordpress/data';
 import metadata from './block.json';
 import './style.scss';
 import './editor.scss';
 
-function Edit( { attributes, setAttributes } ) {
+const PANEL = 'zentro-blocks/tab-panel';
+
+/**
+ * Build a tab-panel block from a label and an HTML string (legacy content).
+ *
+ * @param {string} label Tab label.
+ * @param {string} html  Legacy HTML/text content.
+ * @return {Object} Block.
+ */
+const makePanel = ( label, html = '' ) => {
+	let inner = html ? rawHandler( { HTML: html } ) : [];
+	if ( ! inner.length ) {
+		inner = [ createBlock( 'core/paragraph', { content: html || '' } ) ];
+	}
+	return createBlock( PANEL, { label }, inner );
+};
+
+function Edit( { attributes, setAttributes, clientId } ) {
 	const { tabs, activeColor, borderRadius, alignment } = attributes;
 	const [ activeTab, setActiveTab ] = useState( 0 );
-	const blockProps = useBlockProps();
 
-	const updateTab = ( index, key, value ) => {
-		const updated = tabs.map( ( tab, i ) =>
-			i === index ? { ...tab, [ key ]: value } : tab
-		);
-		setAttributes( { tabs: updated } );
-	};
+	const { panels, selectedPanelIndex, selectedId } = useSelect(
+		( select ) => {
+			const be = select( blockEditorStore );
+			const children = be.getBlocks( clientId );
+			const selId = be.getSelectedBlockClientId();
+			let idx = -1;
+			if ( selId ) {
+				const parents = [ selId, ...be.getBlockParents( selId, true ) ];
+				idx = children.findIndex( ( c ) =>
+					parents.includes( c.clientId )
+				);
+			}
+			return {
+				panels: children,
+				selectedPanelIndex: idx,
+				selectedId: selId,
+			};
+		},
+		[ clientId ]
+	);
+
+	const {
+		replaceInnerBlocks,
+		insertBlock,
+		removeBlock,
+		moveBlocksUp,
+		moveBlocksDown,
+		updateBlockAttributes,
+		selectBlock,
+	} = useDispatch( blockEditorStore );
+
+	// One-time migration: old tabs stored plain text in the `tabs` attribute.
+	useEffect( () => {
+		if ( panels.length === 0 && Array.isArray( tabs ) && tabs.length ) {
+			replaceInnerBlocks(
+				clientId,
+				tabs.map( ( t, i ) =>
+					makePanel( t.label || `Tab ${ i + 1 }`, t.content || '' )
+				),
+				false
+			);
+			setAttributes( { tabs: [] } );
+		} else if ( panels.length === 0 ) {
+			replaceInnerBlocks(
+				clientId,
+				[
+					makePanel( __( 'Tab One', 'zentro-blocks' ) ),
+					makePanel( __( 'Tab Two', 'zentro-blocks' ) ),
+				],
+				false
+			);
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [] );
+
+	// Selecting a block inside a hidden tab (e.g. via List View) opens that tab.
+	useEffect( () => {
+		if ( selectedPanelIndex > -1 && selectedPanelIndex !== activeTab ) {
+			setActiveTab( selectedPanelIndex );
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [ selectedId, selectedPanelIndex ] );
+
+	// Keep the active index valid after tabs are removed.
+	useEffect( () => {
+		if ( activeTab > panels.length - 1 && panels.length ) {
+			setActiveTab( panels.length - 1 );
+		}
+	}, [ panels.length, activeTab ] );
+
+	const blockProps = useBlockProps( { className: 'gk-tabs' } );
+	const innerBlocksProps = useInnerBlocksProps(
+		{ className: 'gk-tabs__panels' },
+		{
+			allowedBlocks: [ PANEL ],
+			orientation: 'horizontal',
+			renderAppender: false,
+			templateLock: false,
+		}
+	);
 
 	const addTab = () => {
-		setAttributes( {
-			tabs: [ ...tabs, { label: `Tab ${ tabs.length + 1 }`, content: '' } ],
-		} );
-		setActiveTab( tabs.length );
+		const label = sprintf(
+			/* translators: %d: tab number */ __( 'Tab %d', 'zentro-blocks' ),
+			panels.length + 1
+		);
+		insertBlock( makePanel( label ), panels.length, clientId, false );
+		setActiveTab( panels.length );
 	};
 
 	const removeTab = ( index ) => {
-		const updated = tabs.filter( ( _, i ) => i !== index );
-		setAttributes( { tabs: updated } );
-		setActiveTab( Math.max( 0, index - 1 ) );
+		if ( panels[ index ] ) {
+			removeBlock( panels[ index ].clientId, false );
+			setActiveTab( Math.max( 0, index - 1 ) );
+		}
 	};
+
+	const moveTab = ( index, dir ) => {
+		const id = panels[ index ]?.clientId;
+		if ( ! id ) {
+			return;
+		}
+		if ( dir < 0 ) {
+			moveBlocksUp( [ id ], clientId );
+		} else {
+			moveBlocksDown( [ id ], clientId );
+		}
+		setActiveTab( index + dir );
+	};
+
+	const setLabel = ( index, label ) => {
+		if ( panels[ index ] ) {
+			updateBlockAttributes( panels[ index ].clientId, { label } );
+		}
+	};
+
+	// Hide every panel except the active one (editor only).
+	const hideCss = panels
+		.map( ( p, i ) =>
+			i === activeTab
+				? ''
+				: `#block-${ p.clientId }{display:none !important;}`
+		)
+		.join( '' );
+
+	const justify =
+		{ left: 'flex-start', center: 'center', right: 'flex-end' }[
+			alignment
+		] || 'flex-start';
 
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={ __( 'Tab Settings', 'zentro-blocks' ) } initialOpen={ true }>
+				<PanelBody
+					title={ __( 'Tab Settings', 'zentro-blocks' ) }
+					initialOpen={ true }
+				>
 					<SelectControl
 						label={ __( 'Tab Alignment', 'zentro-blocks' ) }
 						value={ alignment }
 						options={ [
-							{ label: 'Left', value: 'left' },
-							{ label: 'Center', value: 'center' },
-							{ label: 'Right', value: 'right' },
+							{
+								label: __( 'Left', 'zentro-blocks' ),
+								value: 'left',
+							},
+							{
+								label: __( 'Center', 'zentro-blocks' ),
+								value: 'center',
+							},
+							{
+								label: __( 'Right', 'zentro-blocks' ),
+								value: 'right',
+							},
 						] }
-						onChange={ ( val ) => setAttributes( { alignment: val } ) }
+						onChange={ ( val ) =>
+							setAttributes( { alignment: val } )
+						}
 					/>
 					<RangeControl
 						label={ __( 'Border Radius (px)', 'zentro-blocks' ) }
 						value={ borderRadius }
-						onChange={ ( val ) => setAttributes( { borderRadius: val } ) }
+						onChange={ ( val ) =>
+							setAttributes( { borderRadius: val } )
+						}
 						min={ 0 }
 						max={ 20 }
 					/>
-					{ tabs.map( ( tab, index ) => (
-						<PanelBody
-							key={ index }
-							title={ tab.label || `Tab ${ index + 1 }` }
-							initialOpen={ index === 0 }
+				</PanelBody>
+				<PanelBody
+					title={ __( 'Tabs', 'zentro-blocks' ) }
+					initialOpen={ true }
+				>
+					{ panels.map( ( panel, index ) => (
+						<div
+							key={ panel.clientId }
+							className="gk-tabs-sidebar-row"
 						>
 							<TextControl
-								label={ __( 'Tab Label', 'zentro-blocks' ) }
-								value={ tab.label }
-								onChange={ ( val ) => updateTab( index, 'label', val ) }
+								label={ sprintf(
+									/* translators: %d: tab number */ __(
+										'Tab %d label',
+										'zentro-blocks'
+									),
+									index + 1
+								) }
+								value={ panel.attributes.label }
+								onChange={ ( val ) => setLabel( index, val ) }
 							/>
-							<TextareaControl
-								label={ __( 'Tab Content', 'zentro-blocks' ) }
-								value={ tab.content }
-								onChange={ ( val ) => updateTab( index, 'content', val ) }
-								rows={ 4 }
-							/>
-							{ tabs.length > 1 && (
+							<div className="gk-tabs-sidebar-actions">
 								<Button
-									isDestructive
-									variant="secondary"
-									onClick={ () => removeTab( index ) }
-								>
-									{ __( 'Remove Tab', 'zentro-blocks' ) }
-								</Button>
-							) }
-						</PanelBody>
+									size="small"
+									variant="tertiary"
+									icon="arrow-up-alt2"
+									label={ __( 'Move up', 'zentro-blocks' ) }
+									disabled={ index === 0 }
+									onClick={ () => moveTab( index, -1 ) }
+								/>
+								<Button
+									size="small"
+									variant="tertiary"
+									icon="arrow-down-alt2"
+									label={ __( 'Move down', 'zentro-blocks' ) }
+									disabled={ index === panels.length - 1 }
+									onClick={ () => moveTab( index, 1 ) }
+								/>
+								{ panels.length > 1 && (
+									<Button
+										size="small"
+										isDestructive
+										variant="tertiary"
+										icon="trash"
+										label={ __(
+											'Remove tab',
+											'zentro-blocks'
+										) }
+										onClick={ () => removeTab( index ) }
+									/>
+								) }
+							</div>
+						</div>
 					) ) }
-					<Button variant="primary" onClick={ addTab } style={ { marginTop: '8px' } }>
+					<Button variant="primary" onClick={ addTab }>
 						{ __( '+ Add Tab', 'zentro-blocks' ) }
 					</Button>
 				</PanelBody>
@@ -101,7 +273,8 @@ function Edit( { attributes, setAttributes } ) {
 					colorSettings={ [
 						{
 							value: activeColor,
-							onChange: ( val ) => setAttributes( { activeColor: val } ),
+							onChange: ( val ) =>
+								setAttributes( { activeColor: val } ),
 							label: __( 'Active Tab Color', 'zentro-blocks' ),
 						},
 					] }
@@ -109,29 +282,82 @@ function Edit( { attributes, setAttributes } ) {
 			</InspectorControls>
 
 			<div { ...blockProps }>
+				{ hideCss && <style>{ hideCss }</style> }
 				<div
 					className="gk-tabs__nav"
-					style={ { justifyContent: alignment } }
+					role="tablist"
+					style={ { justifyContent: justify } }
 				>
-					{ tabs.map( ( tab, index ) => (
-						<button
-							key={ index }
-							className={ `gk-tabs__nav-btn${ activeTab === index ? ' is-active' : '' }` }
-							style={ {
-								borderRadius: `${ borderRadius }px ${ borderRadius }px 0 0`,
-								...(activeTab === index
-									? { borderBottomColor: activeColor, color: activeColor }
-									: {} ),
-							} }
-							onClick={ () => setActiveTab( index ) }
-						>
-							{ tab.label }
-						</button>
-					) ) }
+					{ panels.map( ( panel, index ) => {
+						const isActive = index === activeTab;
+						return (
+							<div
+								key={ panel.clientId }
+								role="tab"
+								tabIndex={ 0 }
+								aria-selected={ isActive }
+								className={ `gk-tabs__nav-btn${
+									isActive ? ' is-active' : ''
+								}` }
+								style={ {
+									borderRadius: `${ borderRadius }px ${ borderRadius }px 0 0`,
+									...( isActive
+										? {
+												borderBottomColor: activeColor,
+												color: activeColor,
+										  }
+										: {} ),
+								} }
+								onClick={ () => setActiveTab( index ) }
+								onKeyDown={ ( e ) => {
+									if ( e.key === 'Enter' && ! isActive ) {
+										setActiveTab( index );
+									}
+								} }
+							>
+								{ isActive ? (
+									<RichText
+										tagName="span"
+										value={ panel.attributes.label }
+										onChange={ ( val ) =>
+											setLabel( index, val )
+										}
+										allowedFormats={ [] }
+										withoutInteractiveFormatting
+										placeholder={ __(
+											'Tab label',
+											'zentro-blocks'
+										) }
+										aria-label={ __(
+											'Tab label',
+											'zentro-blocks'
+										) }
+									/>
+								) : (
+									<span>{ panel.attributes.label }</span>
+								) }
+							</div>
+						);
+					} ) }
+					<Button
+						className="gk-tabs__add"
+						icon="plus"
+						label={ __( 'Add tab', 'zentro-blocks' ) }
+						onClick={ addTab }
+					/>
 				</div>
-				<div className="gk-tabs__panel">
-					{ tabs[ activeTab ]?.content || __( 'Enter content in the sidebar.', 'zentro-blocks' ) }
-				</div>
+				<div { ...innerBlocksProps } />
+				{ panels[ activeTab ] && (
+					<Button
+						className="gk-tabs__select-panel"
+						variant="link"
+						onClick={ () =>
+							selectBlock( panels[ activeTab ].clientId )
+						}
+					>
+						{ __( 'Select this tab', 'zentro-blocks' ) }
+					</Button>
+				) }
 			</div>
 		</>
 	);
@@ -139,5 +365,5 @@ function Edit( { attributes, setAttributes } ) {
 
 registerBlockType( metadata.name, {
 	edit: Edit,
-	save: () => null,
+	save: () => <InnerBlocks.Content />,
 } );

@@ -1,0 +1,1 @@
+{"version":3,"file":"testimonials-carousel/index.css","mappings":";;;AAAA;EACC;EACA;EACA;AACD,C","sources":["webpack://zentro-blocks/./src/testimonials-carousel/editor.scss"],"sourcesContent":[".wp-block-zentro-blocks-testimonials-carousel {\n\tmargin: 20px auto;\n\tmax-width: 650px;\n\twidth: 100%;\n}\n"],"names":[],"sourceRoot":""}

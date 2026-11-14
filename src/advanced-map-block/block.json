@@ -1,0 +1,71 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zentro-blocks/advanced-map-block",
+  "version": "1.0.0",
+  "title": "Advanced Map",
+  "category": "zentro-blocks",
+  "icon": "location-alt",
+  "description": "Premium interactive map supporting Google Maps and OpenStreetMap (Leaflet) with customized pins, styles, and viewport lazy-loading.",
+  "keywords": [ "map", "google maps", "openstreetmap", "leaflet", "location" ],
+  "textdomain": "zentro-blocks",
+  "attributes": {
+    "mapProvider": {
+      "type": "string",
+      "default": "openstreetmap"
+    },
+    "apiKey": {
+      "type": "string",
+      "default": ""
+    },
+    "latitude": {
+      "type": "number",
+      "default": 40.7128
+    },
+    "longitude": {
+      "type": "number",
+      "default": -74.0060
+    },
+    "zoom": {
+      "type": "number",
+      "default": 13
+    },
+    "mapHeight": {
+      "type": "number",
+      "default": 400
+    },
+    "markerTitle": {
+      "type": "string",
+      "default": "Zentro HQ"
+    },
+    "markerContent": {
+      "type": "string",
+      "default": "123 Creative Studio, New York"
+    },
+    "showTooltip": {
+      "type": "boolean",
+      "default": true
+    },
+    "mapTheme": {
+      "type": "string",
+      "default": "standard"
+    },
+    "zoomControl": {
+      "type": "boolean",
+      "default": true
+    },
+    "markerIconUrl": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [ "wide", "full" ]
+  },
+  "render": "file:./render.php",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}

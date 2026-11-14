@@ -4,26 +4,30 @@
 	}
 
 	function animateCounter( el ) {
-		const target    = parseInt( el.dataset.target, 10 ) || 0;
-		const duration  = parseInt( el.dataset.duration, 10 ) || 2000;
+		const target = parseInt( el.dataset.target, 10 ) || 0;
+		const duration = parseInt( el.dataset.duration, 10 ) || 2000;
 		const separator = el.dataset.separator === 'true';
-		const valueEl   = el.querySelector( '.gk-counter__value' );
+		const valueEl = el.querySelector( '.gk-counter__value' );
 
-		if ( ! valueEl ) return;
+		if ( ! valueEl ) {
+			return;
+		}
 
-		let start     = null;
-		let animated  = false;
+		let start = null;
+		let animated = false;
 
 		function format( num ) {
 			return separator ? num.toLocaleString() : String( num );
 		}
 
 		function step( timestamp ) {
-			if ( ! start ) start = timestamp;
-			const elapsed  = timestamp - start;
+			if ( ! start ) {
+				start = timestamp;
+			}
+			const elapsed = timestamp - start;
 			const progress = Math.min( elapsed / duration, 1 );
-			const eased    = easeOutQuad( progress );
-			const current  = Math.round( eased * target );
+			const eased = easeOutQuad( progress );
+			const current = Math.round( eased * target );
 
 			valueEl.textContent = format( current );
 

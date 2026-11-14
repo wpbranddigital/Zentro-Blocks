@@ -1,1 +1,28 @@
-.gk-counter{padding:24px 16px}.gk-counter__number{font-weight:700;line-height:1.1}.gk-counter__label{font-weight:400;margin-top:8px;opacity:.85}
+/*!********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/animated-counter/style.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************/
+.gk-counter {
+  padding: 24px 16px;
+}
+.gk-counter.alignfull {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+}
+.gk-counter.alignwide {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.gk-counter__number {
+  font-weight: 700;
+  line-height: 1.1;
+}
+.gk-counter__label {
+  margin-top: 8px;
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+/*# sourceMappingURL=style-index.css.map*/

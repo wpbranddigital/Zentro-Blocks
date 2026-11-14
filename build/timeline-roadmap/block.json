@@ -1,0 +1,71 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zentro-blocks/timeline-roadmap",
+  "version": "1.0.0",
+  "title": "Timeline & Roadmap",
+  "category": "zentro-blocks",
+  "icon": "schedule",
+  "description": "Create custom horizontal or vertical chronological timelines and roadmaps with dynamic scrolling and custom layouts.",
+  "keywords": [
+    "timeline",
+    "roadmap",
+    "milestones",
+    "history"
+  ],
+  "textdomain": "zentro-blocks",
+  "attributes": {
+    "milestones": {
+      "type": "array",
+      "default": [
+        {
+          "date": "Q1 2026",
+          "title": "Project Conception",
+          "content": "Establish goals, structure team roles, and perform initial research."
+        },
+        {
+          "date": "Q2 2026",
+          "title": "Design & Prototyping",
+          "content": "Design wireframes, create interactive mockups, and gather user feedback."
+        },
+        {
+          "date": "Q3 2026",
+          "title": "Product Launch",
+          "content": "Compile final production builds, announce launch, and onboarding."
+        }
+      ]
+    },
+    "timelineColor": {
+      "type": "string",
+      "default": "#0073aa"
+    },
+    "nodeBgColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "textColor": {
+      "type": "string",
+      "default": "#333333"
+    },
+    "layout": {
+      "type": "string",
+      "default": "vertical"
+    },
+    "animateOnScroll": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "render": "file:./render.php",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}

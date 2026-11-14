@@ -1,1 +1,65 @@
-document.querySelectorAll(".gk-accordion").forEach(function(e){const t="true"===e.dataset.allowMultiple,n=e.querySelectorAll(".gk-accordion__item"),i=e.querySelectorAll(".gk-accordion__trigger");function a(e,c){const o=n[e],r=i[e],s=o.querySelector(".gk-accordion__panel");if(!o||!r||!s)return;const l=o.classList.contains("is-active");("boolean"==typeof c?c:!l)?(t||n.forEach(function(t,n){n!==e&&t.classList.contains("is-active")&&a(n,!1)}),o.classList.add("is-active"),r.setAttribute("aria-expanded","true"),s.setAttribute("aria-hidden","false")):(o.classList.remove("is-active"),r.setAttribute("aria-expanded","false"),s.setAttribute("aria-hidden","true"))}i.forEach(function(e,t){e.addEventListener("click",function(){a(t)}),e.addEventListener("keydown",function(e){let n=t;"ArrowDown"===e.key&&(n=(t+1)%i.length),"ArrowUp"===e.key&&(n=(t-1+i.length)%i.length),"Home"===e.key&&(n=0),"End"===e.key&&(n=i.length-1),n!==t&&(e.preventDefault(),i[n].focus())})})});
+/******/ (() => { // webpackBootstrap
+/*!*************************************!*\
+  !*** ./src/accordion-block/view.js ***!
+  \*************************************/
+(function () {
+  document.querySelectorAll('.gk-accordion').forEach(function (accordion) {
+    const allowMultiple = accordion.dataset.allowMultiple === 'true';
+    const items = accordion.querySelectorAll('.gk-accordion__item');
+    const triggers = accordion.querySelectorAll('.gk-accordion__trigger');
+    function toggle(index, forceState) {
+      const item = items[index];
+      const trigger = triggers[index];
+      const panel = item.querySelector('.gk-accordion__panel');
+      if (!item || !trigger || !panel) {
+        return;
+      }
+      const isCurrentlyActive = item.classList.contains('is-active');
+      const willBeActive = typeof forceState === 'boolean' ? forceState : !isCurrentlyActive;
+      if (willBeActive) {
+        // Close other items if multiple not allowed
+        if (!allowMultiple) {
+          items.forEach(function (otherItem, idx) {
+            if (idx !== index && otherItem.classList.contains('is-active')) {
+              toggle(idx, false);
+            }
+          });
+        }
+        item.classList.add('is-active');
+        trigger.setAttribute('aria-expanded', 'true');
+        panel.setAttribute('aria-hidden', 'false');
+      } else {
+        item.classList.remove('is-active');
+        trigger.setAttribute('aria-expanded', 'false');
+        panel.setAttribute('aria-hidden', 'true');
+      }
+    }
+    triggers.forEach(function (trigger, index) {
+      trigger.addEventListener('click', function () {
+        toggle(index);
+      });
+      trigger.addEventListener('keydown', function (e) {
+        let next = index;
+        if (e.key === 'ArrowDown') {
+          next = (index + 1) % triggers.length;
+        }
+        if (e.key === 'ArrowUp') {
+          next = (index - 1 + triggers.length) % triggers.length;
+        }
+        if (e.key === 'Home') {
+          next = 0;
+        }
+        if (e.key === 'End') {
+          next = triggers.length - 1;
+        }
+        if (next !== index) {
+          e.preventDefault();
+          triggers[next].focus();
+        }
+      });
+    });
+  });
+})();
+/******/ })()
+;
+//# sourceMappingURL=view.js.map

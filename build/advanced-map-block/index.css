@@ -1,0 +1,68 @@
+/*!***********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/advanced-map-block/editor.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************/
+.gk-advanced-map-editor-wrapper {
+  position: relative;
+  width: 100%;
+  border: 1px dashed #cbd5e1;
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 4px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+.gk-advanced-map-editor-wrapper.alignfull {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+.gk-advanced-map-editor-wrapper.alignfull .gk-advanced-map-container {
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: none;
+  box-shadow: none;
+}
+.gk-advanced-map-editor-wrapper.alignwide {
+  padding: 0;
+  border: 1px dashed #cbd5e1;
+  border-radius: 8px;
+}
+.gk-advanced-map-editor-wrapper .gk-advanced-map-block {
+  margin: 0;
+  width: 100%;
+}
+.gk-advanced-map-editor-wrapper .leaflet-control-container,
+.gk-advanced-map-editor-wrapper .gmnoprint,
+.gk-advanced-map-editor-wrapper .gm-style-cc {
+  pointer-events: none !important;
+}
+.gk-advanced-map-editor-wrapper .gk-map-editor-placeholder-notice {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  max-width: 80%;
+  z-index: 10;
+}
+.gk-advanced-map-editor-wrapper .gk-map-editor-placeholder-notice h3 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  color: #1e293b;
+}
+.gk-advanced-map-editor-wrapper .gk-map-editor-placeholder-notice p {
+  margin: 0;
+  font-size: 13px;
+  color: #64748b;
+}
+
+/*# sourceMappingURL=index.css.map*/

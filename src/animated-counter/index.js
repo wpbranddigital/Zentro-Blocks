@@ -18,25 +18,39 @@ import './editor.scss';
 
 function Edit( { attributes, setAttributes } ) {
 	const {
-		targetNumber, prefix, suffix, label, duration,
-		numberColor, labelColor, numberSize, labelSize, alignment, separator,
+		targetNumber,
+		prefix,
+		suffix,
+		label,
+		duration,
+		numberColor,
+		labelColor,
+		numberSize,
+		labelSize,
+		alignment,
+		separator,
 	} = attributes;
 
 	const blockProps = useBlockProps( { style: { textAlign: alignment } } );
 
-	const formatted = separator
-		? targetNumber.toLocaleString()
-		: targetNumber;
+	const formatted = separator ? targetNumber.toLocaleString() : targetNumber;
 
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={ __( 'Counter Settings', 'zentro-blocks' ) } initialOpen={ true }>
+				<PanelBody
+					title={ __( 'Counter Settings', 'zentro-blocks' ) }
+					initialOpen={ true }
+				>
 					<TextControl
 						type="number"
 						label={ __( 'Target Number', 'zentro-blocks' ) }
 						value={ targetNumber }
-						onChange={ ( val ) => setAttributes( { targetNumber: parseInt( val ) || 0 } ) }
+						onChange={ ( val ) =>
+							setAttributes( {
+								targetNumber: parseInt( val ) || 0,
+							} )
+						}
 					/>
 					<TextControl
 						label={ __( 'Prefix (e.g. $)', 'zentro-blocks' ) }
@@ -54,9 +68,14 @@ function Edit( { attributes, setAttributes } ) {
 						onChange={ ( val ) => setAttributes( { label: val } ) }
 					/>
 					<RangeControl
-						label={ __( 'Animation Duration (ms)', 'zentro-blocks' ) }
+						label={ __(
+							'Animation Duration (ms)',
+							'zentro-blocks'
+						) }
 						value={ duration }
-						onChange={ ( val ) => setAttributes( { duration: val } ) }
+						onChange={ ( val ) =>
+							setAttributes( { duration: val } )
+						}
 						min={ 500 }
 						max={ 5000 }
 						step={ 100 }
@@ -64,7 +83,9 @@ function Edit( { attributes, setAttributes } ) {
 					<ToggleControl
 						label={ __( 'Thousands Separator', 'zentro-blocks' ) }
 						checked={ separator }
-						onChange={ ( val ) => setAttributes( { separator: val } ) }
+						onChange={ ( val ) =>
+							setAttributes( { separator: val } )
+						}
 					/>
 					<SelectControl
 						label={ __( 'Alignment', 'zentro-blocks' ) }
@@ -74,19 +95,25 @@ function Edit( { attributes, setAttributes } ) {
 							{ label: 'Center', value: 'center' },
 							{ label: 'Right', value: 'right' },
 						] }
-						onChange={ ( val ) => setAttributes( { alignment: val } ) }
+						onChange={ ( val ) =>
+							setAttributes( { alignment: val } )
+						}
 					/>
 					<RangeControl
 						label={ __( 'Number Font Size (px)', 'zentro-blocks' ) }
 						value={ numberSize }
-						onChange={ ( val ) => setAttributes( { numberSize: val } ) }
+						onChange={ ( val ) =>
+							setAttributes( { numberSize: val } )
+						}
 						min={ 24 }
 						max={ 120 }
 					/>
 					<RangeControl
 						label={ __( 'Label Font Size (px)', 'zentro-blocks' ) }
 						value={ labelSize }
-						onChange={ ( val ) => setAttributes( { labelSize: val } ) }
+						onChange={ ( val ) =>
+							setAttributes( { labelSize: val } )
+						}
 						min={ 12 }
 						max={ 32 }
 					/>
@@ -96,12 +123,14 @@ function Edit( { attributes, setAttributes } ) {
 					colorSettings={ [
 						{
 							value: numberColor,
-							onChange: ( val ) => setAttributes( { numberColor: val } ),
+							onChange: ( val ) =>
+								setAttributes( { numberColor: val } ),
 							label: __( 'Number Color', 'zentro-blocks' ),
 						},
 						{
 							value: labelColor,
-							onChange: ( val ) => setAttributes( { labelColor: val } ),
+							onChange: ( val ) =>
+								setAttributes( { labelColor: val } ),
 							label: __( 'Label Color', 'zentro-blocks' ),
 						},
 					] }
@@ -111,14 +140,22 @@ function Edit( { attributes, setAttributes } ) {
 			<div { ...blockProps }>
 				<div
 					className="gk-counter__number"
-					style={ { color: numberColor, fontSize: `${ numberSize }px` } }
+					style={ {
+						color: numberColor,
+						fontSize: `${ numberSize }px`,
+					} }
 				>
-					{ prefix }{ formatted }{ suffix }
+					{ prefix }
+					{ formatted }
+					{ suffix }
 				</div>
 				{ label && (
 					<div
 						className="gk-counter__label"
-						style={ { color: labelColor, fontSize: `${ labelSize }px` } }
+						style={ {
+							color: labelColor,
+							fontSize: `${ labelSize }px`,
+						} }
 					>
 						{ label }
 					</div>

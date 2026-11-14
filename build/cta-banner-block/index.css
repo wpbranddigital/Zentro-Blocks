@@ -1,1 +1,41 @@
-.wp-block-gutenberg-kit-cta-banner-block .gk-cta--stacked .gk-cta__action{margin-top:24px}.wp-block-gutenberg-kit-cta-banner-block .gk-cta--inline{align-items:center;display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;text-align:left!important}.wp-block-gutenberg-kit-cta-banner-block .gk-cta--inline .gk-cta__text{flex:1}.wp-block-gutenberg-kit-cta-banner-block .gk-cta--inline .gk-cta__action{flex-shrink:0}.wp-block-gutenberg-kit-cta-banner-block .gk-cta__headline{color:inherit;font-size:28px;font-weight:700;margin:0 0 8px}.wp-block-gutenberg-kit-cta-banner-block .gk-cta__subtext{font-size:16px;margin:0;opacity:.88}.wp-block-gutenberg-kit-cta-banner-block .gk-cta__btn{border-radius:4px;cursor:default;display:inline-block;font-size:15px;font-weight:600;padding:12px 28px}
+/*!*********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/cta-banner-block/editor.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************/
+.wp-block-gutenberg-kit-cta-banner-block .gk-cta--stacked .gk-cta__action {
+  margin-top: 24px;
+}
+.wp-block-gutenberg-kit-cta-banner-block .gk-cta--inline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+  text-align: left !important;
+}
+.wp-block-gutenberg-kit-cta-banner-block .gk-cta--inline .gk-cta__text {
+  flex: 1;
+}
+.wp-block-gutenberg-kit-cta-banner-block .gk-cta--inline .gk-cta__action {
+  flex-shrink: 0;
+}
+.wp-block-gutenberg-kit-cta-banner-block .gk-cta__headline {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: inherit;
+}
+.wp-block-gutenberg-kit-cta-banner-block .gk-cta__subtext {
+  font-size: 16px;
+  margin: 0;
+  opacity: 0.88;
+}
+.wp-block-gutenberg-kit-cta-banner-block .gk-cta__btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: default;
+}
+
+/*# sourceMappingURL=index.css.map*/

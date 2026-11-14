@@ -1,6 +1,19 @@
 .gk-counter {
 	padding: 24px 16px;
 
+	&.alignfull {
+		width: 100vw !important;
+		max-width: 100vw !important;
+		margin-left: calc(50% - 50vw) !important;
+		margin-right: calc(50% - 50vw) !important;
+	}
+
+	&.alignwide {
+		max-width: 1200px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
 	&__number {
 		font-weight: 700;
 		line-height: 1.1;

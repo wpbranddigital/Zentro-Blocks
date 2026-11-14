@@ -1,0 +1,21 @@
+.gk-image-hotspot-block {
+	// Force the active editing pin's tooltip bubble to display in editor
+	.gk-hotspot-pin-wrapper.is-editing {
+
+		.gk-hotspot-tooltip {
+			opacity: 1 !important;
+			visibility: visible !important;
+			pointer-events: auto !important;
+
+			&.gk-hotspot-tooltip--top,
+			&.gk-hotspot-tooltip--bottom {
+				transform: translateX(-50%) translateY(0) !important;
+			}
+
+			&.gk-hotspot-tooltip--left,
+			&.gk-hotspot-tooltip--right {
+				transform: translateY(-50%) translateX(0) !important;
+			}
+		}
+	}
+}

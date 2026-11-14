@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zentro-blocks/tab-panel",
+  "version": "1.1.0",
+  "title": "Tab",
+  "category": "zentro-blocks",
+  "icon": "index-card",
+  "description": "A single tab inside a Zentro Tabs block. Holds any blocks.",
+  "parent": [ "zentro-blocks/tabs-block" ],
+  "textdomain": "zentro-blocks",
+  "attributes": {
+    "label": { "type": "string", "default": "Tab" }
+  },
+  "supports": {
+    "html": false,
+    "inserter": false,
+    "reusable": false,
+    "lock": false
+  },
+  "render": "file:./render.php",
+  "editorScript": "file:./index.js"
+}

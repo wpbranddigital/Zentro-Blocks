@@ -1,6 +1,6 @@
 # Zentro Blocks
 
-A WordPress plugin containing a collection of 6 highly interactive, customizable, and premium Gutenberg blocks.
+A WordPress plugin containing a collection of 15 highly interactive, customizable, and premium Gutenberg blocks.
 
 ## Blocks Included
 
@@ -12,6 +12,15 @@ A WordPress plugin containing a collection of 6 highly interactive, customizable
 | **CTA Banner** | Call-to-action banner supporting stacked or inline layouts. | `zentro-blocks/cta-banner-block` |
 | **Accordion Block** | Collapsible detail panels with smooth CSS height transitions and ARIA accessibility. | `zentro-blocks/accordion-block` |
 | **Pricing Card** | Clean, high-converting product/service pricing tables with badge highlighting. | `zentro-blocks/pricing-card-block` |
+| **Container Block** | Flexible section wrapper with grid/flex layouts, custom backgrounds, and shape dividers. | `zentro-blocks/container-block` |
+| **Progress Tracker** | Dynamic circular or horizontal bar showing animated progress indicators. | `zentro-blocks/progress-tracker` |
+| **Image Hotspot** | Interactive pins placed on an image with rich descriptive tooltips. | `zentro-blocks/image-hotspot` |
+| **Advanced Map** | Premium maps with OpenStreetMap and Google Maps support with viewport lazy-loading. | `zentro-blocks/advanced-map-block` |
+| **Timeline & Roadmap** | Beautiful interactive vertical/horizontal chronological milestone roadmap block. | `zentro-blocks/timeline-roadmap` |
+| **Before/After Image Comparison** | Interactive slider to compare before and after images side-by-side or stacked. | `zentro-blocks/image-comparison` |
+| **Testimonials Carousel** | Interactive review and testimonial slide carousel layout with star ratings and custom layouts. | `zentro-blocks/testimonials-carousel` |
+| **Button Block** | High-performance interactive call-to-action button with custom sizes, hover highlights, and active animations. | `zentro-blocks/button-block` |
+| **Box Card Block** | Premium feature grid card supporting badge labels, media icons, custom borders, and dynamic hover float effects. | `zentro-blocks/box-card-block` |
 
 ## Requirements
 

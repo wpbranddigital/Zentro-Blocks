@@ -1,0 +1,154 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zentro-blocks/box-card-block",
+  "version": "1.0.0",
+  "title": "Premium Feature Card",
+  "category": "zentro-blocks",
+  "icon": "welcome-widgets-menus",
+  "description": "Showcase your product features, services, or highlights inside highly animated, customizable grid cards.",
+  "keywords": [
+    "card",
+    "box",
+    "feature",
+    "grid"
+  ],
+  "textdomain": "zentro-blocks",
+  "attributes": {
+    "cards": {
+      "type": "array",
+      "default": [
+        {
+          "title": "Feature One",
+          "description": "Short description of the feature goes here.",
+          "badgeText": "NEW",
+          "showBadge": true,
+          "iconType": "icon",
+          "iconName": "star",
+          "imageSrc": "",
+          "imageAlt": "",
+          "cardLink": "#",
+          "cardLinkText": "Learn More →",
+          "cardLinkTarget": "_self"
+        },
+        {
+          "title": "Feature Two",
+          "description": "Short description of the feature goes here.",
+          "badgeText": "HOT",
+          "showBadge": false,
+          "iconType": "icon",
+          "iconName": "check",
+          "imageSrc": "",
+          "imageAlt": "",
+          "cardLink": "#",
+          "cardLinkText": "Learn More →",
+          "cardLinkTarget": "_self"
+        },
+        {
+          "title": "Feature Three",
+          "description": "Short description of the feature goes here.",
+          "badgeText": "PRO",
+          "showBadge": false,
+          "iconType": "icon",
+          "iconName": "heart",
+          "imageSrc": "",
+          "imageAlt": "",
+          "cardLink": "#",
+          "cardLinkText": "Learn More →",
+          "cardLinkTarget": "_self"
+        }
+      ]
+    },
+    "columnsDesktop": {
+      "type": "number",
+      "default": 3
+    },
+    "columnsTablet": {
+      "type": "number",
+      "default": 2
+    },
+    "columnsMobile": {
+      "type": "number",
+      "default": 1
+    },
+    "gap": {
+      "type": "number",
+      "default": 30
+    },
+    "alignment": {
+      "type": "string",
+      "default": "left"
+    },
+    "cardBg": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "titleColor": {
+      "type": "string",
+      "default": "#0f172a"
+    },
+    "descColor": {
+      "type": "string",
+      "default": "#475569"
+    },
+    "badgeBg": {
+      "type": "string",
+      "default": "#0073aa"
+    },
+    "badgeTextColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "linkColor": {
+      "type": "string",
+      "default": "#0073aa"
+    },
+    "linkHoverColor": {
+      "type": "string",
+      "default": "#005a87"
+    },
+    "hoverEffect": {
+      "type": "string",
+      "default": "float"
+    },
+    "borderRadius": {
+      "type": "number",
+      "default": 12
+    },
+    "paddingTop": {
+      "type": "number",
+      "default": 32
+    },
+    "paddingBottom": {
+      "type": "number",
+      "default": 32
+    },
+    "paddingLeft": {
+      "type": "number",
+      "default": 32
+    },
+    "paddingRight": {
+      "type": "number",
+      "default": 32
+    },
+    "borderColor": {
+      "type": "string",
+      "default": "#e2e8f0"
+    },
+    "borderWidth": {
+      "type": "number",
+      "default": 1
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "render": "file:./render.php",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

@@ -1,7 +1,22 @@
 .gk-pricing-card {
 	box-sizing: border-box;
 
-	*, *::before, *::after {
+	&.alignfull {
+		width: 100vw !important;
+		max-width: 100vw !important;
+		margin-left: calc(50% - 50vw) !important;
+		margin-right: calc(50% - 50vw) !important;
+	}
+
+	&.alignwide {
+		max-width: 1200px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
 		box-sizing: border-box;
 	}
 
@@ -20,15 +35,17 @@
 
 	&--popular {
 		border: 2px solid var(--gk-pricing-primary, #0073aa);
+		// Top accent as an inset shadow: it follows the card's border-radius
+		// (the old absolutely-positioned bar stuck out past rounded corners).
+		box-shadow:
+			inset 0 4px 0 var(--gk-pricing-primary, #0073aa),
+			0 12px 24px -8px rgba(15, 23, 42, 0.18);
 
-		&::before {
-			content: "";
-			position: absolute;
-			top: -2px;
-			left: -2px;
-			right: -2px;
-			height: 4px;
-			background: var(--gk-pricing-primary, #0073aa);
+		&:hover {
+			box-shadow:
+				inset 0 4px 0 var(--gk-pricing-primary, #0073aa),
+				0 20px 25px -5px rgba(0, 0, 0, 0.1),
+				0 10px 10px -5px rgba(0, 0, 0, 0.04);
 		}
 	}
 

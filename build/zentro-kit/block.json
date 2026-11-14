@@ -1,0 +1,11 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zentro-blocks/zentro-kit",
+  "version": "1.0.0",
+  "title": "Zentro Kit",
+  "category": "zentro-blocks",
+  "description": "Zentro Kit Template Library",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css"
+}

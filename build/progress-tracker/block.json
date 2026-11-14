@@ -1,0 +1,79 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zentro-blocks/progress-tracker",
+  "version": "1.0.0",
+  "title": "Progress Tracker",
+  "category": "zentro-blocks",
+  "icon": "performance",
+  "description": "Animates progress indicators (linear bars and SVG circle loops) with viewport triggering and responsive alignments.",
+  "keywords": [
+    "progress",
+    "bar",
+    "circle",
+    "stats"
+  ],
+  "textdomain": "zentro-blocks",
+  "attributes": {
+    "type": {
+      "type": "string",
+      "default": "bar"
+    },
+    "percentage": {
+      "type": "number",
+      "default": 75
+    },
+    "duration": {
+      "type": "number",
+      "default": 1500
+    },
+    "strokeWidth": {
+      "type": "number",
+      "default": 8
+    },
+    "trackColor": {
+      "type": "string",
+      "default": "#e2e8f0"
+    },
+    "barColor": {
+      "type": "string",
+      "default": "#38bdf8"
+    },
+    "textColor": {
+      "type": "string",
+      "default": "#0f172a"
+    },
+    "textSize": {
+      "type": "number",
+      "default": 20
+    },
+    "label": {
+      "type": "string",
+      "default": "Progress Title"
+    },
+    "labelColor": {
+      "type": "string",
+      "default": "#64748b"
+    },
+    "labelSize": {
+      "type": "number",
+      "default": 14
+    },
+    "alignment": {
+      "type": "string",
+      "default": "center"
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "render": "file:./render.php",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}

@@ -1,0 +1,15 @@
+.wp-block-zentro-blocks-timeline-roadmap {
+	margin: 20px 0;
+	padding: 10px;
+	border: 1px dashed rgba(0, 0, 0, 0.1);
+	border-radius: 8px;
+	background-color: rgba(255, 255, 255, 0.5);
+
+	// Ensure the editor does not clip dynamic drop-shadows
+	overflow: visible;
+
+	// In the editor, horizontal scrolling of elements should be easy to interact with
+	.gk-timeline--layout-horizontal {
+		padding: 30px 10px;
+	}
+}

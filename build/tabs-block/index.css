@@ -1,1 +1,57 @@
-.wp-block-gutenberg-kit-tabs-block .gk-tabs__nav{border-bottom:2px solid #ddd;display:flex;flex-wrap:wrap;gap:4px;margin-bottom:0}.wp-block-gutenberg-kit-tabs-block .gk-tabs__nav-btn{background:#f5f5f5;border:1px solid #ddd;border-bottom:none;color:#555;cursor:pointer;font-size:14px;font-weight:500;padding:10px 20px;transition:background .2s,color .2s}.wp-block-gutenberg-kit-tabs-block .gk-tabs__nav-btn.is-active{background:#fff;border-bottom:2px solid;bottom:-2px;position:relative}.wp-block-gutenberg-kit-tabs-block .gk-tabs__nav-btn:hover:not(.is-active){background:#eee}.wp-block-gutenberg-kit-tabs-block .gk-tabs__panel{background:#fff;border:1px solid #ddd;border-top:none;min-height:80px;padding:20px}
+/*!***************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/tabs-block/editor.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************/
+.wp-block-zentro-blocks-tabs-block .gk-tabs__nav {
+  align-items: flex-end;
+}
+.wp-block-zentro-blocks-tabs-block .gk-tabs__nav-btn {
+  display: inline-flex;
+  align-items: center;
+  min-width: 60px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.wp-block-zentro-blocks-tabs-block .gk-tabs__nav-btn:hover:not(.is-active) {
+  background: #eee;
+}
+.wp-block-zentro-blocks-tabs-block .gk-tabs__nav-btn [contenteditable] {
+  outline: none;
+  min-width: 20px;
+  cursor: text;
+}
+.wp-block-zentro-blocks-tabs-block .gk-tabs__add.components-button {
+  align-self: center;
+  margin-left: 4px;
+  color: #64748b;
+}
+.wp-block-zentro-blocks-tabs-block .gk-tabs__panels {
+  min-height: 80px;
+}
+.wp-block-zentro-blocks-tabs-block .gk-tabs__panels > .block-editor-inner-blocks > .block-editor-block-list__layout {
+  display: block;
+}
+.wp-block-zentro-blocks-tabs-block .gk-tabs__panel {
+  margin: 0 !important;
+  max-width: none !important;
+}
+.wp-block-zentro-blocks-tabs-block .gk-tabs__select-panel.components-button {
+  margin-top: 6px;
+  font-size: 12px;
+}
+
+.gk-tabs-sidebar-row {
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+}
+.gk-tabs-sidebar-row .components-base-control {
+  margin-bottom: 4px !important;
+}
+
+.gk-tabs-sidebar-actions {
+  display: flex;
+  gap: 4px;
+}
+
+/*# sourceMappingURL=index.css.map*/

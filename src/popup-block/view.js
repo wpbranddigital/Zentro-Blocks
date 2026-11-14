@@ -1,22 +1,31 @@
 ( function () {
-	const FOCUSABLE = 'a[href],button:not([disabled]),input,textarea,select,[tabindex]:not([tabindex="-1"])';
+	const FOCUSABLE =
+		'a[href],button:not([disabled]),input,textarea,select,[tabindex]:not([tabindex="-1"])';
 
 	function trapFocus( modal ) {
 		const focusable = Array.from( modal.querySelectorAll( FOCUSABLE ) );
-		if ( focusable.length === 0 ) return;
-		const first     = focusable[ 0 ];
-		const last      = focusable[ focusable.length - 1 ];
+		if ( focusable.length === 0 ) {
+			return;
+		}
+		const first = focusable[ 0 ];
+		const last = focusable[ focusable.length - 1 ];
 
 		if ( modal._trapHandler ) {
 			modal.removeEventListener( 'keydown', modal._trapHandler );
 		}
 
 		function handler( e ) {
-			if ( e.key !== 'Tab' ) return;
+			if ( e.key !== 'Tab' ) {
+				return;
+			}
 			if ( e.shiftKey ) {
-				if ( document.activeElement === first ) { e.preventDefault(); last.focus(); }
-			} else {
-				if ( document.activeElement === last )  { e.preventDefault(); first.focus(); }
+				if ( document.activeElement === first ) {
+					e.preventDefault();
+					last.focus();
+				}
+			} else if ( document.activeElement === last ) {
+				e.preventDefault();
+				first.focus();
 			}
 		}
 
@@ -27,11 +36,13 @@
 	document.querySelectorAll( '.gk-popup-wrap' ).forEach( function ( wrap ) {
 		const trigger = wrap.querySelector( '.gk-popup__trigger' );
 		const overlay = wrap.querySelector( '.gk-popup__overlay' );
-		const modal   = wrap.querySelector( '.gk-popup__modal' );
+		const modal = wrap.querySelector( '.gk-popup__modal' );
 		const closeBtn = wrap.querySelector( '.gk-popup__close' );
 		let previousFocus = null;
 
-		if ( ! trigger || ! overlay ) return;
+		if ( ! trigger || ! overlay ) {
+			return;
+		}
 
 		function openPopup() {
 			previousFocus = document.activeElement;
@@ -57,11 +68,16 @@
 		closeBtn && closeBtn.addEventListener( 'click', closePopup );
 
 		overlay.addEventListener( 'click', function ( e ) {
-			if ( e.target === overlay ) closePopup();
+			if ( e.target === overlay ) {
+				closePopup();
+			}
 		} );
 
 		document.addEventListener( 'keydown', function ( e ) {
-			if ( e.key === 'Escape' && overlay.classList.contains( 'is-open' ) ) {
+			if (
+				e.key === 'Escape' &&
+				overlay.classList.contains( 'is-open' )
+			) {
 				closePopup();
 			}
 		} );
